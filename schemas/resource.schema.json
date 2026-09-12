@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://c4-learning.example/schemas/resource.schema.json",
+  "title": "C4 Learning public resources",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["sourceId", "resourceName", "officialUrl", "dataStatus"],
+    "properties": {
+      "sourceId": { "type": "string", "minLength": 1 },
+      "resourceName": { "type": "string", "minLength": 1 },
+      "officialUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+      "sourceSummaryEn": { "type": ["string", "null"] },
+      "shortDescriptionEn": { "type": ["string", "null"] },
+      "shortDescriptionZh": { "type": ["string", "null"] },
+      "urlVerifiedAt": { "type": ["string", "null"], "format": "date" },
+      "lastVerifiedAt": { "type": ["string", "null"], "format": "date" },
+      "imageFileName": { "type": ["string", "null"] },
+      "dataStatus": { "enum": ["draft", "needsReview", "verified", "archived"] }
+    },
+    "additionalProperties": true
+  }
+}

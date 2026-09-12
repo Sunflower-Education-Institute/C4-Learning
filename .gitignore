@@ -1,0 +1,23 @@
+.DS_Store
+._*
+.env
+.env.*
+node_modules/
+dist/
+*.log
+
+# Private source and review formats do not belong in the website repository.
+*.xlsx
+*.xls
+*.docx
+*.csv
+*.ndjson
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+
+# Database and local export folders.
+exports/
+backups/
+private-data/

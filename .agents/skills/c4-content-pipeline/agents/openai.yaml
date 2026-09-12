@@ -1,0 +1,4 @@
+interface:
+  display_name: "C4 Content Pipeline"
+  short_description: "Validate private source data before publishing website content"
+  default_prompt: "Use $c4-content-pipeline to validate and prepare approved C4 Learning content for publication."

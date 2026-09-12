@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://c4learning.org/schemas/review.schema.json",
+  "title": "C4 Learning public review",
+  "type": "object",
+  "required": ["sourceId", "rating"],
+  "properties": {
+    "sourceId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "reviewText": {
+      "type": ["string", "null"]
+    },
+    "language": {
+      "type": ["string", "null"],
+      "enum": ["en", "zh-Hans", null]
+    }
+  },
+  "additionalProperties": true
+}

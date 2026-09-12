@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore learning resources reviewed by parents, educators, and SEE researchers." />
+    <title>SEE Learning Resources</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#resources">Skip to resources</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="SEE home">
+        <img class="brand-symbol" src="assets/brand/see-logo-symbol.png" alt="" />
+        <span class="brand-words">
+          <strong>The Sunflower Education Institute</strong>
+          <small>Empower parents and children</small>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#resources" data-i18n="navExplore">Explore resources</a>
+        <a href="#about" data-i18n="navAbout">About SEE</a>
+        <a href="#for-educators" data-i18n="navEducators">For educators</a>
+        <button class="language-button" type="button" aria-label="Choose language" aria-haspopup="true" aria-expanded="false">
+          <span class="globe-icon" aria-hidden="true"></span>
+        </button>
+        <div class="language-menu" role="menu">
+          <button type="button" data-language="en" role="menuitem">English</button>
+          <button type="button" data-language="zh" role="menuitem">中文</button>
+        </div>
+        <button class="sign-in" type="button" data-i18n="signIn">Sign in</button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="eyebrow">Learning resources for every family</p>
+          <h1 data-i18n="heroTitle">Find learning resources that fit your child</h1>
+          <p class="hero-description" data-i18n="heroDescription">Trusted reviews from parents, educators, and researchers.</p>
+          <a class="primary-button" href="#resources" data-i18n="heroCta">Explore resources</a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <img class="sunflower" src="assets/brand/sunflower-hero.png" alt="A golden sunflower" />
+        </div>
+      </section>
+
+      <section class="resource-section" id="resources">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="libraryEyebrow">Learning resource library</p>
+            <h2 data-i18n="libraryTitle">Explore learning resources</h2>
+          </div>
+          <p class="result-count" aria-live="polite"><strong id="result-count">39</strong> <span data-i18n="resources">resources</span></p>
+        </div>
+
+        <button id="filter-toggle" class="filter-toggle" type="button" aria-expanded="false" data-i18n="showFilters">Show search and filters</button>
+        <div class="resource-layout">
+          <aside class="filter-sidebar" aria-label="Resource filters">
+            <div class="filter-sidebar-heading">
+              <p class="eyebrow" data-i18n="findResources">Find resources</p>
+              <button id="filter-close" type="button" aria-label="Close filters">×</button>
+            </div>
+            <div class="filters">
+              <label class="filter-label" for="search-input" data-i18n="searchShort">Search</label>
+              <label class="search-box">
+                <span class="search-icon" aria-hidden="true"></span>
+                <span class="visually-hidden" data-i18n="searchLabel">Search learning resources</span>
+                <input id="search-input" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Search learning resources" />
+              </label>
+              <div class="filter-divider"></div>
+              <p class="filter-by-title" data-i18n="filterByTags">Filter by tags</p>
+              <details class="filter-group" open>
+                <summary data-i18n="subjectsGroup">Subjects</summary>
+                <div id="subject-filter" class="checkbox-list"></div>
+              </details>
+              <details class="filter-group" open>
+                <summary data-i18n="ageGroupsGroup">Age group</summary>
+                <div id="age-filter" class="checkbox-list"></div>
+              </details>
+              <details class="filter-group" open>
+                <summary data-i18n="systemsGroup">Education system / region</summary>
+                <div id="region-filter" class="checkbox-list"></div>
+              </details>
+              <details class="filter-group">
+                <summary data-i18n="costTypesGroup">Cost type</summary>
+                <div id="cost-filter" class="checkbox-list"></div>
+              </details>
+              <label class="select-wrap sort-wrap">
+                <span data-i18n="sort">Sort</span>
+                <select id="sort-filter" aria-label="Sort resources"></select>
+              </label>
+              <button id="clear-filters" class="clear-button" type="button" data-i18n="clear">Clear filters</button>
+            </div>
+          </aside>
+
+          <div class="resource-results">
+            <div id="active-filter-note" class="active-filter-note" hidden></div>
+            <div id="resource-grid" class="resource-grid"></div>
+            <div id="empty-state" class="empty-state" hidden>
+              <h3 data-i18n="emptyTitle">No matching resources</h3>
+              <p data-i18n="emptyBody">Try removing a filter or using a different search term.</p>
+            </div>
+            <nav id="pagination" class="pagination" aria-label="Resource pages"></nav>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="about-card">
+          <p class="eyebrow" data-i18n="aboutEyebrow">About SEE</p>
+          <h2 data-i18n="aboutTitle">Helping families make informed learning choices</h2>
+          <p data-i18n="aboutBody">The Sunflower Education Institute brings together resource information and reviews from parents, educators, and researchers. This meeting demo uses a curated local dataset and does not require an account or database.</p>
+        </div>
+        <div class="about-points" id="for-educators">
+          <article><span>01</span><h3 data-i18n="pointOneTitle">Discover</h3><p data-i18n="pointOneBody">Search by subject, age range, and cost type.</p></article>
+          <article><span>02</span><h3 data-i18n="pointTwoTitle">Review</h3><p data-i18n="pointTwoBody">Read SEE and community perspectives in one place.</p></article>
+          <article><span>03</span><h3 data-i18n="pointThreeTitle">Choose</h3><p data-i18n="pointThreeBody">Visit the source website and decide what fits your family.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <img src="assets/brand/see-logo.png" alt="The Sunflower Education Institute" />
+      <p data-i18n="footerText">Meeting demo · Resource information is being reviewed and may change.</p>
+    </footer>
+
+    <dialog id="resource-dialog" class="resource-dialog">
+      <button class="dialog-close" type="button" aria-label="Close">×</button>
+      <div id="dialog-content"></div>
+    </dialog>
+
+    <dialog id="signin-dialog" class="signin-dialog">
+      <button class="dialog-close" type="button" aria-label="Close">×</button>
+      <p class="eyebrow">Demo</p>
+      <h2 data-i18n="signinTitle">Account features are coming later</h2>
+      <p data-i18n="signinBody">The meeting version does not create accounts or store passwords.</p>
+      <button class="primary-button dialog-action" type="button" data-close-dialog data-i18n="understood">Understood</button>
+    </dialog>
+
+    <script src="data/resources.js"></script>
+    <script src="data/reviews.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
