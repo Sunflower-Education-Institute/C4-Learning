@@ -137,14 +137,37 @@ function ratingStars(value) {
   return `<span class="star-meter" role="img" aria-label="${score} out of 5 stars">${stars}</span><span class="rating-value">${escapeHtml(numeric.toFixed(1))}</span>`;
 }
 
+function iconSvg(name) {
+  const paths = {
+    smartphone: '<rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path>',
+    book: '<path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3Z"></path><path d="M21 18a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3Z"></path>',
+    file: '<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M16 13H8"></path><path d="M16 17H8"></path>',
+    class: '<path d="m22 10-10-5L2 10l10 5 10-5Z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path><path d="M22 10v6"></path>',
+    video: '<circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon>',
+    game: '<path d="M6 11h4"></path><path d="M8 9v4"></path><path d="M15 12h.01"></path><path d="M18 10h.01"></path><path d="M17.3 5H6.7A4.7 4.7 0 0 0 2 9.7v.6A8.7 8.7 0 0 0 10.7 19h2.6a8.7 8.7 0 0 0 8.7-8.7v-.6A4.7 4.7 0 0 0 17.3 5Z"></path>',
+    globe: '<circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 0 20"></path><path d="M12 2a15.3 15.3 0 0 0 0 20"></path>',
+  };
+  return `<svg class="resource-type-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths[name] || paths.globe}</svg>`;
+}
+
+function resourceTypeIcon(sourceType = "") {
+  const type = sourceType.toLowerCase();
+  if (type.includes("app")) return iconSvg("smartphone");
+  if (type.includes("book") || type.includes("e-book")) return iconSvg("book");
+  if (type.includes("printable") || type.includes("worksheet")) return iconSvg("file");
+  if (type.includes("class")) return iconSvg("class");
+  if (type.includes("video") || type.includes("vedio")) return iconSvg("video");
+  if (type.includes("game")) return iconSvg("game");
+  return iconSvg("globe");
+}
+
 function renderCard(resource) {
   return `<article class="resource-card">
     ${resourceImage(resource)}
     <div class="resource-body">
-      <div class="resource-type">${escapeHtml(resource.sourceType || t("dataReview"))}</div>
+      <div class="resource-type">${resourceTypeIcon(resource.sourceType)}<span>${escapeHtml(resource.sourceType || t("dataReview"))}</span></div>
       <h3>${escapeHtml(resource.resourceName)}</h3>
       <p class="resource-summary">${escapeHtml(localizedSummary(resource))}</p>
-      <p class="resource-meta">${escapeHtml(resource.ageGradeRange || t("dataReview"))}</p>
       <div class="tag-row">${cardTags(resource)}</div>
       <div class="card-footer"><span class="rating">${ratingStars(resource.initialSeeScore)}</span><button class="details-button" type="button" data-source-id="${escapeHtml(resource.sourceId)}">${t("viewDetails")}</button></div>
     </div>
