@@ -7,7 +7,7 @@
     <title>SEE Learning Resources</title>
     <link rel="icon" type="image/png" href="assets/brand/see-logo-symbol.png?v=20260914-1" />
     <link rel="apple-touch-icon" href="assets/brand/see-logo-symbol.png?v=20260914-1" />
-    <link rel="stylesheet" href="styles.css?v=20260914-1" />
+    <link rel="stylesheet" href="styles.css?v=20260915-2" />
   </head>
   <body>
     <a class="skip-link" href="#resources">Skip to resources</a>
@@ -118,7 +118,7 @@
         <div class="about-card">
           <p class="eyebrow" data-i18n="aboutEyebrow">About SEE</p>
           <h2 data-i18n="aboutTitle">Helping families make informed learning choices</h2>
-          <p data-i18n="aboutBody">The Sunflower Education Institute brings together resource information and reviews from parents, educators, and researchers. This meeting demo uses a curated local dataset and does not require an account or database.</p>
+          <p data-i18n="aboutBody">The Sunflower Education Institute brings together resource information and reviews from parents, educators, and researchers. This meeting demo uses a curated local dataset and a browser-only demo account; it has no backend database.</p>
         </div>
         <div class="about-points" id="for-educators">
           <article><span>01</span><h3 data-i18n="pointOneTitle">Discover</h3><p data-i18n="pointOneBody">Search by subject, age range, and cost type.</p></article>
@@ -133,21 +133,22 @@
       <p data-i18n="footerText">Meeting demo · Resource information is being reviewed and may change.</p>
     </footer>
 
-    <dialog id="resource-dialog" class="resource-dialog">
-      <button class="dialog-close" type="button" aria-label="Close">×</button>
-      <div id="dialog-content"></div>
-    </dialog>
-
     <dialog id="signin-dialog" class="signin-dialog">
       <button class="dialog-close" type="button" aria-label="Close">×</button>
       <p class="eyebrow">Demo</p>
-      <h2 data-i18n="signinTitle">Account features are coming later</h2>
-      <p data-i18n="signinBody">The meeting version does not create accounts or store passwords.</p>
-      <button class="primary-button dialog-action" type="button" data-close-dialog data-i18n="understood">Understood</button>
+      <h2 data-i18n="signinTitle">Sign in to your demo account</h2>
+      <p data-i18n="signinBody">Use the prefilled demo account to try saving and comparing resources. No personal information is collected.</p>
+      <form id="demo-signin-form" class="signin-form">
+        <label><span data-i18n="emailLabel">Email</span><input type="email" value="demo@sunflower.example" readonly /></label>
+        <label><span data-i18n="passwordLabel">Password</span><input type="password" value="demo-only" readonly /></label>
+        <button class="primary-button dialog-action" type="submit" data-i18n="loginButton">Log in</button>
+      </form>
+      <small class="demo-privacy" data-i18n="demoPrivacy">Demo only · Data is stored in this browser.</small>
     </dialog>
 
     <script src="data/resources.js"></script>
     <script src="data/reviews.js"></script>
-    <script src="app.js?v=20260914-1"></script>
+    <script src="account.js?v=20260915-1"></script>
+    <script src="app.js?v=20260915-2"></script>
   </body>
 </html>

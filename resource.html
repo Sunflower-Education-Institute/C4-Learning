@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SEE learning resource details." />
+    <title>Resource details · SEE</title>
+    <link rel="icon" type="image/png" href="assets/brand/see-logo-symbol.png" />
+    <link rel="stylesheet" href="styles.css?v=20260915-1" />
+  </head>
+  <body>
+    <a class="skip-link" href="#resource-detail">Skip to resource details</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="SEE home">
+        <img class="brand-symbol" src="assets/brand/see-logo-symbol.png" alt="" />
+        <span class="brand-words"><strong>The Sunflower Education Institute</strong><small>Empower parents and children</small></span>
+      </a>
+      <nav class="main-nav page-nav" aria-label="Main navigation">
+        <a href="index.html#resources">Explore resources</a>
+        <button class="text-language-button" type="button" data-toggle-language>中文</button>
+        <button class="sign-in" type="button">Sign in</button>
+      </nav>
+    </header>
+
+    <main id="resource-detail" class="detail-page"><div class="page-loading">Loading resource…</div></main>
+
+    <footer>
+      <img src="assets/brand/see-logo.png" alt="The Sunflower Education Institute" />
+      <p>Meeting demo · Resource information is being reviewed and may change.</p>
+    </footer>
+
+    <dialog id="signin-dialog" class="signin-dialog">
+      <button class="dialog-close" type="button" aria-label="Close">×</button>
+      <p class="eyebrow">Demo</p>
+      <h2>Sign in to your demo account</h2>
+      <p>Use the prefilled demo account to try saving and comparing resources. No personal information is collected.</p>
+      <form id="demo-signin-form" class="signin-form">
+        <label><span>Email</span><input type="email" value="demo@sunflower.example" readonly /></label>
+        <label><span>Password</span><input type="password" value="demo-only" readonly /></label>
+        <button class="primary-button dialog-action" type="submit">Log in</button>
+      </form>
+      <small class="demo-privacy">Demo only · Data is stored in this browser.</small>
+    </dialog>
+
+    <script src="data/resources.js"></script>
+    <script src="data/reviews.js"></script>
+    <script src="data/review-summaries.js"></script>
+    <script src="data/reviewers.js"></script>
+    <script src="account.js?v=20260915-1"></script>
+    <script src="resource.js?v=20260915-1"></script>
+  </body>
+</html>

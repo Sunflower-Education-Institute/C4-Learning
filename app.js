@@ -20,15 +20,16 @@ const translations = {
     sortName: "Name A–Z", sortRating: "Highest SEE score", sortNewest: "Newest", emptyTitle: "No matching resources",
     emptyBody: "Try removing a filter or using a different search term.", aboutEyebrow: "About SEE",
     aboutTitle: "Helping families make informed learning choices",
-    aboutBody: "The Sunflower Education Institute brings together resource information and reviews from parents, educators, and researchers. This meeting demo uses a curated local dataset and does not require an account or database.",
+    aboutBody: "The Sunflower Education Institute brings together resource information and reviews from parents, educators, and researchers. This meeting demo uses a curated local dataset and a browser-only demo account; it has no backend database.",
     pointOneTitle: "Discover", pointOneBody: "Search by subject, age range, and cost type.", pointTwoTitle: "Review",
     pointTwoBody: "Read SEE and community perspectives in one place.", pointThreeTitle: "Choose",
     pointThreeBody: "Visit the source website and decide what fits your family.",
-    footerText: "Meeting demo · Resource information is being reviewed and may change.", viewDetails: "View details",
+    footerText: "Meeting demo · Resource information is being reviewed and may change.",
     ageRange: "Age range", sourceType: "Resource type", seeScore: "Initial SEE score", originalCost: "Original recorded cost",
     costPending: "Verification pending", tags: "Tags", resourceOverview: "Resource overview", reviewsLabel: "Parent and educator reviews", noReviews: "No reviews are available yet.",
     visitWebsite: "Visit official website", readReviewSource: "Read third-party source", previous: "Previous", next: "Next", page: "Page", of: "of",
-    signinTitle: "Account features are coming later", signinBody: "The meeting version does not create accounts or store passwords.", understood: "Understood",
+    signinTitle: "Sign in to your demo account", signinBody: "Use the prefilled demo account to try saving and comparing resources. No personal information is collected.",
+    emailLabel: "Email", passwordLabel: "Password", loginButton: "Log in", demoPrivacy: "Demo only · Data is stored in this browser.", saveResource: "Save resource", removeSaved: "Remove from saved",
     filterStatus: "Showing results for", dataReview: "Information review pending", findResources: "Find resources", showFilters: "Show search and filters"
   },
   zh: {
@@ -42,15 +43,16 @@ const translations = {
     sortName: "名称 A–Z", sortRating: "SEE 评分最高", sortNewest: "最新添加", emptyTitle: "没有符合条件的资源",
     emptyBody: "请移除部分筛选条件或尝试其他关键词。", aboutEyebrow: "关于 SEE",
     aboutTitle: "帮助家庭做出更合适的学习选择",
-    aboutBody: "看见向日葵教育研究所汇集学习资源信息，以及家长、教育者和研究人员的评价。本会议演示使用本地精选数据，无需账号或数据库。",
+    aboutBody: "看见向日葵教育研究所汇集学习资源信息，以及家长、教育者和研究人员的评价。本会议演示使用本地精选数据和仅保存在浏览器中的演示账号，不连接后台数据库。",
     pointOneTitle: "发现", pointOneBody: "按照学科、年龄和费用类型搜索。", pointTwoTitle: "了解",
     pointTwoBody: "在一个页面阅读 SEE 和社区的不同观点。", pointThreeTitle: "选择",
     pointThreeBody: "访问资源官方网站，判断它是否适合您的家庭。",
-    footerText: "会议演示版 · 资源信息正在核查，可能发生变化。", viewDetails: "查看详情",
+    footerText: "会议演示版 · 资源信息正在核查，可能发生变化。",
     ageRange: "适用年龄", sourceType: "资源类型", seeScore: "初始 SEE 评分", originalCost: "原表记录费用",
     costPending: "等待核实", tags: "标签", resourceOverview: "资源详细介绍", reviewsLabel: "家长与教育者评价", noReviews: "目前还没有评价。",
     visitWebsite: "访问官方网站", readReviewSource: "查看第三方资料来源", previous: "上一页", next: "下一页", page: "第", of: "页，共",
-    signinTitle: "账号功能将在后续开放", signinBody: "会议演示版不会创建账号，也不会保存密码。", understood: "知道了",
+    signinTitle: "登录演示账号", signinBody: "使用预填的演示账号体验收藏与比较功能。我们不会收集个人信息。",
+    emailLabel: "邮箱", passwordLabel: "密码", loginButton: "登录", demoPrivacy: "仅供演示 · 数据只保存在当前浏览器中。", saveResource: "收藏资源", removeSaved: "取消收藏",
     filterStatus: "当前筛选", dataReview: "信息等待核查", findResources: "查找资源", showFilters: "打开搜索和筛选"
   }
 };
@@ -63,7 +65,7 @@ const elements = {
   grid: document.querySelector("#resource-grid"), count: document.querySelector("#result-count"), pagination: document.querySelector("#pagination"),
   search: document.querySelector("#search-input"), subject: document.querySelector("#subject-filter"), age: document.querySelector("#age-filter"),
   region: document.querySelector("#region-filter"), cost: document.querySelector("#cost-filter"), sort: document.querySelector("#sort-filter"), clear: document.querySelector("#clear-filters"),
-  empty: document.querySelector("#empty-state"), filterNote: document.querySelector("#active-filter-note"), resourceDialog: document.querySelector("#resource-dialog"),
+  empty: document.querySelector("#empty-state"), filterNote: document.querySelector("#active-filter-note"),
   signinDialog: document.querySelector("#signin-dialog"), languageButton: document.querySelector(".language-button"), languageMenu: document.querySelector(".language-menu"),
   menuToggle: document.querySelector(".menu-toggle"), mainNav: document.querySelector(".main-nav"),
   filterToggle: document.querySelector("#filter-toggle"), filterClose: document.querySelector("#filter-close"), filterSidebar: document.querySelector(".filter-sidebar")
@@ -81,7 +83,21 @@ const reviewsBySource = reviews.reduce((map, row) => {
 
 function t(key) { return translations[language][key] || translations.en[key] || key; }
 function escapeHtml(value) { return String(value ?? "").replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c])); }
-function uniqueTags(category) { return [...new Set(resources.flatMap(resource => resource[tagFieldByCategory[category]] || []))].sort((a,b) => a.localeCompare(b)); }
+function ageTagOrder(tag) {
+  const match = tag.match(/Ages?\s*(\d+)/i);
+  if (match) return Number(match[1]);
+  if (/infant|baby|toddler/i.test(tag)) return 0;
+  if (/preschool/i.test(tag)) return 3;
+  if (/pre-k/i.test(tag)) return 4;
+  if (/kindergarten/i.test(tag)) return 5;
+  if (/adult/i.test(tag)) return 100;
+  if (/all ages/i.test(tag)) return 998;
+  return 999;
+}
+function uniqueTags(category) {
+  const tags = [...new Set(resources.flatMap(resource => resource[tagFieldByCategory[category]] || []))];
+  return tags.sort((a,b) => category === "ageGroup" ? ageTagOrder(a) - ageTagOrder(b) || a.localeCompare(b) : a.localeCompare(b));
+}
 function option(value, label) { return `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`; }
 function checkedValues(container) { return [...container.querySelectorAll("input:checked")].map(input => input.value); }
 function checkboxOptions(category, selected = []) {
@@ -115,7 +131,47 @@ function filteredResources() {
 function cardTags(resource) {
   const tags = tagsBySource.get(resource.sourceId) || [];
   const preferred = [tags.find(x => x.category === "subject"), tags.find(x => x.category === "ageGroup")].filter(Boolean);
-  return preferred.slice(0,2).map(x => `<span class="tag">${escapeHtml(x.tag)}</span>`).join("");
+  return preferred.slice(0,2).map(x => `<span class="tag">${escapeHtml(shortCardTag(x))}</span>`).join("");
+}
+
+function shortCardTag(item) {
+  if (item.category === "ageGroup") {
+    const ages = item.tag.match(/Ages?\s*(\d+)\s*[-–~]\s*(\d+)/i);
+    if (ages) return language === "zh" ? `${ages[1]}–${ages[2]} 岁` : `Ages ${ages[1]}–${ages[2]}`;
+  }
+  const subjectLabels = {
+    "Arts/Creativity": { en: "Arts & Creativity", zh: "艺术与创意" },
+    "English/Language Arts": { en: "English / Reading", zh: "英语／阅读" },
+    "Language": { en: "Languages", zh: "语言" },
+    "Multi-subject site": { en: "Multi-subject", zh: "多学科" },
+    "Social Studies/History": { en: "History", zh: "历史／社会" },
+    "STEM/Technology": { en: "STEM", zh: "STEM" }
+  };
+  return subjectLabels[item.tag]?.[language] || item.tag;
+}
+
+function shortSourceType(sourceType = "") {
+  const key = sourceType.trim().toLowerCase();
+  const labels = {
+    "book and online program": { en: "Books & Online", zh: "书籍与在线课程" },
+    "books, printable resources": { en: "Books & Printables", zh: "书籍与打印材料" },
+    "e-book site": { en: "E-books", zh: "电子书" },
+    "mobile application": { en: "App", zh: "应用" },
+    "online and physical classes": { en: "Online & In-person", zh: "线上与线下课程" },
+    "online and physical learning": { en: "Online & Offline", zh: "线上与线下学习" },
+    "online classes": { en: "Online Classes", zh: "在线课程" },
+    "online english game": { en: "English Game", zh: "英语游戏" },
+    "online learning program": { en: "Learning Program", zh: "学习项目" },
+    "online learning site": { en: "Website", zh: "网站" },
+    "online learning site and mobile app": { en: "Website & App", zh: "网站与应用" },
+    "online math game": { en: "Math Game", zh: "数学游戏" },
+    "online math tool and exercise": { en: "Math Practice", zh: "数学练习" },
+    "online printable resources": { en: "Printables", zh: "打印材料" },
+    "online vedio learning site": { en: "Video Lessons", zh: "视频课程" },
+    "online videos and resources": { en: "Videos & Resources", zh: "视频与资源" },
+    "worksheet download site": { en: "Worksheets", zh: "练习单" }
+  };
+  return labels[key]?.[language] || sourceType;
 }
 
 function resourceImage(resource) {
@@ -162,14 +218,16 @@ function resourceTypeIcon(sourceType = "") {
 }
 
 function renderCard(resource) {
+  const saved = window.SEE_ACCOUNT?.isSaved(resource.sourceId);
   return `<article class="resource-card">
+    <a class="card-click-target" href="resource.html?id=${encodeURIComponent(resource.sourceId)}" aria-label="${escapeHtml(resource.resourceName)}"></a>
     ${resourceImage(resource)}
     <div class="resource-body">
-      <div class="resource-type">${resourceTypeIcon(resource.sourceType)}<span>${escapeHtml(resource.sourceType || t("dataReview"))}</span></div>
+      <div class="resource-type-row"><div class="resource-type">${resourceTypeIcon(resource.sourceType)}<span>${escapeHtml(shortSourceType(resource.sourceType) || t("dataReview"))}</span></div><button class="bookmark-button ${saved ? "saved" : ""}" type="button" data-bookmark-id="${escapeHtml(resource.sourceId)}" aria-pressed="${saved}" aria-label="${saved ? t("removeSaved") : t("saveResource")}" title="${saved ? t("removeSaved") : t("saveResource")}">${saved ? "★" : "☆"}</button></div>
       <h3>${escapeHtml(resource.resourceName)}</h3>
       <p class="resource-summary">${escapeHtml(localizedSummary(resource))}</p>
       <div class="tag-row">${cardTags(resource)}</div>
-      <div class="card-footer"><span class="rating">${ratingStars(resource.initialSeeScore)}</span><button class="details-button" type="button" data-source-id="${escapeHtml(resource.sourceId)}">${t("viewDetails")}</button></div>
+      <div class="card-footer"><span class="rating">${ratingStars(resource.initialSeeScore)}</span><span class="card-open-hint" aria-hidden="true">→</span></div>
     </div>
   </article>`;
 }
@@ -197,43 +255,35 @@ function renderResources() {
   renderPagination(result.length);
 }
 
-function detailTags(sourceId) { return (tagsBySource.get(sourceId) || []).map(x => `<span class="tag">${escapeHtml(x.tag)}</span>`).join(""); }
-function renderReviews(sourceId) {
-  const items = reviewsBySource.get(sourceId) || [];
-  if (!items.length) return `<p>${t("noReviews")}</p>`;
-  return items.slice(0,4).map(item => `<article class="review"><div class="review-head"><span>${escapeHtml(item.reviewerId)}</span><span>${item.rating ? `★ ${escapeHtml(item.rating)}` : ""}</span></div><p>${escapeHtml(item.reviewSummary)}</p></article>`).join("");
-}
-
-function openResource(sourceId) {
-  const resource = resources.find(x => x.sourceId === sourceId); if (!resource) return;
-  const officialUrl = resource.officialUrl || resource.accessUrlOriginal || "#";
-  const reviewLink = resource.reviewSourceUrl ? `<a class="secondary-source-link" href="${escapeHtml(resource.reviewSourceUrl)}" target="_blank" rel="noopener noreferrer">${t("readReviewSource")}</a>` : "";
-  const descriptionBlock = language === "zh" && resource.sourceDescription ? `<section class="description-block"><h3>${t("resourceOverview")}</h3><p>${escapeHtml(resource.sourceDescription)}</p></section>` : "";
-  document.querySelector("#dialog-content").innerHTML = `<div class="dialog-hero"><p class="eyebrow">${escapeHtml(resource.sourceType)}</p><h2>${escapeHtml(resource.resourceName)}</h2><p class="dialog-summary">${escapeHtml(localizedSummary(resource))}</p><div class="tag-row">${detailTags(sourceId)}</div></div><div class="dialog-main"><div class="detail-grid"><div class="detail-item"><span>${t("ageRange")}</span><strong>${escapeHtml(resource.ageGradeRange || "—")}</strong></div><div class="detail-item"><span>${t("sourceType")}</span><strong>${escapeHtml(resource.sourceType || "—")}</strong></div><div class="detail-item"><span>${t("seeScore")}</span><strong>${ratingStars(resource.initialSeeScore)}</strong></div><div class="detail-item"><span>${t("originalCost")}</span><strong>${escapeHtml(resource.originalCostEstimateUsd || t("costPending"))}</strong><small> · ${t("costPending")}</small></div></div>${descriptionBlock}<div class="review-block"><h3>${t("reviewsLabel")}</h3>${renderReviews(sourceId)}</div><a class="primary-button source-link" href="${escapeHtml(officialUrl)}" target="_blank" rel="noopener noreferrer">${t("visitWebsite")}</a>${reviewLink}</div>`;
-  elements.resourceDialog.showModal();
-}
-
 function applyLanguage(nextLanguage) {
   language = nextLanguage; localStorage.setItem("seeLanguage", language); document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
   document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll("[data-i18n-placeholder]").forEach(el => { el.placeholder = t(el.dataset.i18nPlaceholder); });
   document.querySelectorAll("[data-language]").forEach(el => el.classList.toggle("active", el.dataset.language === language));
-  buildFilters(); renderResources();
+  buildFilters(); renderResources(); window.SEE_ACCOUNT?.updateAccountButton();
 }
 
 elements.search.addEventListener("input", () => { currentPage=1; renderResources(); });
 [elements.subject, elements.age, elements.region, elements.cost].forEach(el => el.addEventListener("change", () => { currentPage=1; renderResources(); }));
 elements.sort.addEventListener("change", () => { currentPage=1; renderResources(); });
 elements.clear.addEventListener("click", () => { elements.search.value=""; document.querySelectorAll(".checkbox-list input").forEach(input => { input.checked=false; }); elements.sort.value="name"; currentPage=1; renderResources(); });
-elements.grid.addEventListener("click", event => { const button=event.target.closest("[data-source-id]"); if(button) openResource(button.dataset.sourceId); });
+elements.grid.addEventListener("click", event => {
+  const bookmark = event.target.closest("[data-bookmark-id]");
+  if (bookmark) {
+    event.stopPropagation();
+    window.SEE_ACCOUNT.toggleSaved(bookmark.dataset.bookmarkId);
+    renderResources();
+    return;
+  }
+});
 elements.pagination.addEventListener("click", event => { const button=event.target.closest("[data-page]"); if(!button||button.disabled)return; currentPage=Number(button.dataset.page); renderResources(); document.querySelector("#resources").scrollIntoView(); });
-document.querySelectorAll(".dialog-close,[data-close-dialog]").forEach(button => button.addEventListener("click", () => button.closest("dialog").close()));
-document.querySelector(".sign-in").addEventListener("click", () => elements.signinDialog.showModal());
 elements.languageButton.addEventListener("click", () => { const open=elements.languageMenu.classList.toggle("open"); elements.languageButton.setAttribute("aria-expanded", String(open)); });
 elements.languageMenu.addEventListener("click", event => { const button=event.target.closest("[data-language]"); if(!button)return; applyLanguage(button.dataset.language); elements.languageMenu.classList.remove("open"); elements.languageButton.setAttribute("aria-expanded","false"); });
 elements.menuToggle.addEventListener("click", () => { const open=elements.mainNav.classList.toggle("open"); elements.menuToggle.setAttribute("aria-expanded",String(open)); });
 elements.filterToggle.addEventListener("click", () => { elements.filterSidebar.classList.add("open"); elements.filterToggle.setAttribute("aria-expanded","true"); document.body.style.overflow="hidden"; elements.search.focus(); });
 elements.filterClose.addEventListener("click", () => { elements.filterSidebar.classList.remove("open"); elements.filterToggle.setAttribute("aria-expanded","false"); document.body.style.overflow=""; });
 document.addEventListener("click", event => { if(!event.target.closest(".language-button")&&!event.target.closest(".language-menu")){elements.languageMenu.classList.remove("open");elements.languageButton.setAttribute("aria-expanded","false");} });
+window.addEventListener("see:account-changed", renderResources);
+window.addEventListener("see:saved-changed", renderResources);
 
 applyLanguage(language);

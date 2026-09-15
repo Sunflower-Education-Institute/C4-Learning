@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Saved SEE learning resources and comparison." />
+    <title>My saved resources · SEE</title>
+    <link rel="icon" type="image/png" href="assets/brand/see-logo-symbol.png" />
+    <link rel="stylesheet" href="styles.css?v=20260915-1" />
+  </head>
+  <body>
+    <a class="skip-link" href="#saved-main">Skip to saved resources</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="SEE home">
+        <img class="brand-symbol" src="assets/brand/see-logo-symbol.png" alt="" />
+        <span class="brand-words"><strong>The Sunflower Education Institute</strong><small>Empower parents and children</small></span>
+      </a>
+      <nav class="main-nav page-nav" aria-label="Main navigation">
+        <a href="index.html#resources">Explore resources</a>
+        <button class="sign-in" type="button">My saved</button>
+      </nav>
+    </header>
+
+    <main id="saved-main" class="saved-page"></main>
+
+    <footer>
+      <img src="assets/brand/see-logo.png" alt="The Sunflower Education Institute" />
+      <p>Demo account · Saved data stays in this browser.</p>
+    </footer>
+
+    <dialog id="signin-dialog" class="signin-dialog">
+      <button class="dialog-close" type="button" aria-label="Close">×</button>
+      <p class="eyebrow">Demo</p>
+      <h2>Sign in to your demo account</h2>
+      <p>Use the prefilled demo account to try saving and comparing resources. No personal information is collected.</p>
+      <form id="demo-signin-form" class="signin-form">
+        <label><span>Email</span><input type="email" value="demo@sunflower.example" readonly /></label>
+        <label><span>Password</span><input type="password" value="demo-only" readonly /></label>
+        <button class="primary-button dialog-action" type="submit">Log in</button>
+      </form>
+      <small class="demo-privacy">Demo only · Data is stored in this browser.</small>
+    </dialog>
+
+    <script src="data/resources.js"></script>
+    <script src="account.js?v=20260915-1"></script>
+    <script src="saved.js?v=20260915-1"></script>
+  </body>
+</html>
