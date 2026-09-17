@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Recommend a high-quality learning resource for SEE to research and consider for the learning resource library." />
+    <title>Suggest a learning resource · SEE</title>
+    <link rel="icon" type="image/png" href="assets/brand/see-logo-symbol.png" />
+    <link rel="stylesheet" href="styles.css?v=20260916-5" />
+  </head>
+  <body>
+    <a class="skip-link" href="#suggest-main">Skip to the suggestion form</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="SEE home">
+        <img class="brand-symbol" src="assets/brand/see-logo-symbol.png" alt="" />
+        <span class="brand-words"><strong>The Sunflower Education Institute</strong><small>Empower parents and children</small></span>
+      </a>
+      <nav class="main-nav page-nav" aria-label="Main navigation">
+        <a href="index.html#resources" data-copy="navResources">Explore resources</a>
+        <a href="https://mysunflower.org/" target="_blank" rel="noopener noreferrer" data-copy="navAbout">About SEE</a>
+        <button class="text-language-button" type="button" data-suggest-language>中文</button>
+      </nav>
+    </header>
+
+    <main id="suggest-main" class="suggest-page">
+      <section class="suggest-hero">
+        <div class="suggest-mark" aria-hidden="true">
+          <img src="assets/brand/see-logo-symbol.png" alt="" />
+        </div>
+        <p class="eyebrow" data-copy="eyebrow">Community recommendations</p>
+        <h1 data-copy="title">Suggest a learning resource</h1>
+        <p data-copy="intro">Know a high-quality resource that is missing from our library? Tell us why it may help families. Every suggestion is reviewed and researched before it can be included.</p>
+      </section>
+
+      <section class="suggest-layout" aria-labelledby="form-title">
+        <aside class="suggest-process">
+          <p class="eyebrow" data-copy="processEyebrow">What happens next</p>
+          <ol>
+            <li><strong data-copy="stepOneTitle">You recommend</strong><span data-copy="stepOneBody">Share the resource and what makes it useful.</span></li>
+            <li><strong data-copy="stepTwoTitle">SEE researches</strong><span data-copy="stepTwoBody">Our team checks the source, audience, pricing, and supporting information.</span></li>
+            <li><strong data-copy="stepThreeTitle">Editors decide</strong><span data-copy="stepThreeBody">Approved resources enter the same editorial review process as the rest of the library.</span></li>
+          </ol>
+          <p class="suggest-privacy" data-copy="privacy">Your name and email are optional and will never be displayed in the public resource library.</p>
+        </aside>
+
+        <div class="suggest-card">
+          <div class="suggest-card-heading">
+            <div>
+              <p class="eyebrow" data-copy="formEyebrow">Resource suggestion</p>
+              <h2 id="form-title" data-copy="formTitle">Tell us what we should review</h2>
+            </div>
+            <span class="required-note" data-copy="requiredNote">* Required</span>
+          </div>
+
+          <div id="connection-notice" class="form-notice" role="status"></div>
+
+          <form id="resource-suggestion-form" class="suggest-form" novalidate>
+            <div class="form-field full-field">
+              <label for="resource-name" data-copy="resourceName">Resource name *</label>
+              <input id="resource-name" name="resourceName" type="text" maxlength="120" autocomplete="off" required data-placeholder="resourceNamePlaceholder" placeholder="e.g., Khan Academy" />
+              <span class="field-error" data-error-for="resourceName"></span>
+            </div>
+
+            <div class="form-field full-field">
+              <label for="resource-url" data-copy="resourceUrl">Resource website</label>
+              <input id="resource-url" name="resourceUrl" type="url" maxlength="500" inputmode="url" autocomplete="url" data-placeholder="resourceUrlPlaceholder" placeholder="https://example.com" />
+              <span class="field-hint" data-copy="resourceUrlHint">Optional, but it helps us identify the correct resource.</span>
+              <span class="field-error" data-error-for="resourceUrl"></span>
+            </div>
+
+            <div class="form-field full-field">
+              <div class="label-row"><label for="recommendation" data-copy="reason">Why do you recommend it? *</label><span id="reason-count">0 / 1500</span></div>
+              <textarea id="recommendation" name="recommendation" rows="6" maxlength="1500" required data-placeholder="reasonPlaceholder" placeholder="What makes it valuable? Who would benefit? What subjects or skills does it cover?"></textarea>
+              <span class="field-error" data-error-for="recommendation"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="age-group" data-copy="ageGroup">Best suited age group</label>
+              <select id="age-group" name="ageGroup">
+                <option value="" data-copy="selectOptional">Select one (optional)</option>
+                <option value="Preschool" data-copy="agePreschool">Preschool</option>
+                <option value="Pre-K" data-copy="agePreK">Pre-K</option>
+                <option value="Kindergarten" data-copy="ageKindergarten">Kindergarten</option>
+                <option value="Early Elementary" data-copy="ageEarlyElementary">Early Elementary</option>
+                <option value="Upper Elementary" data-copy="ageUpperElementary">Upper Elementary</option>
+                <option value="Middle School" data-copy="ageMiddleSchool">Middle School</option>
+                <option value="High School" data-copy="ageHighSchool">High School</option>
+                <option value="All Ages" data-copy="ageAllAges">All Ages</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="subject" data-copy="subject">Primary subject</label>
+              <select id="subject" name="subject">
+                <option value="" data-copy="selectOptional">Select one (optional)</option>
+                <option value="Arts & Creativity" data-copy="subjectArts">Arts &amp; Creativity</option>
+                <option value="English & Reading" data-copy="subjectEnglish">English &amp; Reading</option>
+                <option value="Languages" data-copy="subjectLanguages">Languages</option>
+                <option value="Math" data-copy="subjectMath">Math</option>
+                <option value="Multi-subject" data-copy="subjectMulti">Multi-subject</option>
+                <option value="Social Studies & History" data-copy="subjectSocialStudies">Social Studies &amp; History</option>
+                <option value="STEM & Technology" data-copy="subjectStem">STEM &amp; Technology</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="recommender-name" data-copy="yourName">Your name</label>
+              <input id="recommender-name" name="recommenderName" type="text" maxlength="100" autocomplete="name" data-placeholder="yourNamePlaceholder" placeholder="Optional" />
+            </div>
+
+            <div class="form-field">
+              <label for="contact-email" data-copy="contactEmail">Contact email</label>
+              <input id="contact-email" name="contactEmail" type="email" maxlength="254" autocomplete="email" data-placeholder="contactEmailPlaceholder" placeholder="Optional — only if we may follow up" />
+              <span class="field-error" data-error-for="contactEmail"></span>
+            </div>
+
+            <div class="honeypot" aria-hidden="true">
+              <label for="organization-website">Organization website</label>
+              <input id="organization-website" name="organizationWebsite" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <label class="consent-field full-field">
+              <input name="editorialConsent" type="checkbox" required />
+              <span data-copy="consent">I understand that SEE will research this suggestion and that submission does not guarantee publication. *</span>
+            </label>
+            <span class="field-error full-field" data-error-for="editorialConsent"></span>
+
+            <div class="form-actions full-field">
+              <button id="suggest-submit" class="primary-button" type="submit" data-copy="submit">Submit suggestion</button>
+              <a class="secondary-button cancel-link" href="index.html#resources" data-copy="cancel">Cancel</a>
+            </div>
+            <p id="form-status" class="form-status full-field" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer><img src="assets/brand/see-logo.png" alt="The Sunflower Education Institute" /></footer>
+
+    <script src="suggest-config.js"></script>
+    <script src="suggest.js?v=20260916-1"></script>
+  </body>
+</html>

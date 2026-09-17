@@ -28,7 +28,7 @@ const resourceTypeOrder = ["Curriculum", "Learning Platform", "App", "Worksheets
 
 const translations = {
   en: {
-    navExplore: "Explore resources", navAbout: "About SEE", navEducators: "For educators", signIn: "Sign in",
+    navExplore: "Explore resources", navAbout: "About SEE", navEducators: "Suggest a resource", signIn: "Sign in",
     eyebrow: "Learning resources for every family", heroTitle: "Find learning resources that fit your child",
     heroDescription: "Trusted reviews from parents, educators, and researchers.", heroCta: "Explore resources",
     libraryEyebrow: "Learning resource library", libraryTitle: "Explore learning resources", resources: "resources",
@@ -50,7 +50,7 @@ const translations = {
     filterStatus: "Showing results for", dataReview: "Information review pending", findResources: "Find resources", showFilters: "Show search and filters"
   },
   zh: {
-    navExplore: "浏览资源", navAbout: "关于 SEE", navEducators: "教育者专区", signIn: "登录",
+    navExplore: "浏览资源", navAbout: "关于 SEE", navEducators: "推荐资源", signIn: "登录",
     eyebrow: "为每个家庭提供学习资源", heroTitle: "找到适合您孩子的学习资源",
     heroDescription: "汇集家长、教育者和研究人员的可信评价。", heroCta: "浏览资源",
     libraryEyebrow: "学习资源库", libraryTitle: "探索学习资源", resources: "个资源",
