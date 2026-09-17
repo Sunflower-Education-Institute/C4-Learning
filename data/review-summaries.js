@@ -3,7 +3,7 @@ window.SEE_REVIEW_SUMMARIES = [
     sourceId: "see1_abcmouse",
     status: "demoPreGenerated",
     generatedAt: "2026-09-15",
-    basedOnReviewCount: 3,
+    basedOnReviewCount: 1,
     content: {
       en: {
         overview: "Reviewers describe ABCmouse as a broad early-learning platform with a guided path across reading, math, science, art, and music. Its playful activities and clear American English pronunciation can make independent practice approachable for young children, but families may still want hands-on activities and more targeted reading support.",

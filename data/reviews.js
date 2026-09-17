@@ -8,22 +8,6 @@ window.SEE_REVIEWS = [
     "reviewSummary": "儿童在线学习平台。腾讯曾在2018年将其由美国引入中国，联合了中美专家进行过本地化研发，名为腾讯开心鼠，不过据说下架过一段时间，2025年4月又重新上线，由另一家叫趣学堂（北京）科技公司的机构运营中国版的app，名字改为了ABCmouse英语。从已有的一些家长测评来看，网站本身内容很不错，学习内容发音为地道纯正的美式发音，能对孩子起到不错的示范作用。不过新老应用的交接还需要测试一下。这个解读参考了ABCmouse官方网站和手机应用的内容简介，以及小红薯平台上“一对一老师、学习使我快乐、吃土豆的马铃薯”等账号发布的解读。"
   },
   {
-    "seeNumber": "SEE_1",
-    "sourceId": "see1_abcmouse",
-    "reviewerId": "Cathy Duffy Reviews",
-    "resourceName": "ABCmouse",
-    "rating": "",
-    "reviewSummary": "https://cathyduffyreviews.com/homeschool-reviews-core-curricula/early-learning-preschool/abcmouse-early-learning-academy-online"
-  },
-  {
-    "seeNumber": "SEE_1",
-    "sourceId": "see1_abcmouse",
-    "reviewerId": "Cathy Duffy Reviews",
-    "resourceName": "ABCmouse",
-    "rating": "",
-    "reviewSummary": "儿童在线学习平台，适合约2–7岁儿童，涵盖早期阅读、数学、科学、社会、艺术和音乐等内容。课程采用循序渐进的学习路径，以游戏、歌曲、绘本、拼图和互动活动等形式帮助孩子学习，也提供部分可打印练习。Cathy Duffy将其评为“103个首选课程”之一，认为其内容丰富、趣味性强，且家长需要投入的教学时间较少。不过，由于主要依赖屏幕学习，部分活动的教育价值有限，艺术活动也以数字操作为主；对于需要更系统、个性化阅读支持的孩子，可能还需要额外补充。总体而言，ABCmouse更适合作为学龄前儿童的主要早教资源或家庭学习补充。这个解读主要参考了Cathy Duffy Reviews对ABCmouse的测评（2020年11月更新），以及ABCmouse官方资料；具体价格和平台内容可能已经发生变化。"
-  },
-  {
     "seeNumber": "SEE_2",
     "sourceId": "see2_allinone",
     "reviewerId": "Dr.SEE_Sunflower",

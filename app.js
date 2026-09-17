@@ -8,6 +8,24 @@ const tagFieldByCategory = {
   other: "OTHER CONTENT TAGS"
 };
 
+const resourceTypeBySourceId = {
+  see1_abcmouse: "Learning Platform", see2_allinone: "Curriculum", see3_ambleside: "Curriculum",
+  see4_beastaca: "Curriculum", see5_beestar: "Learning Platform", see6_ck12: "Learning Platform",
+  see7_ctcmath: "Curriculum", see8_education: "Worksheets", see9_fishtank: "Curriculum",
+  see10_gomath: "Curriculum", see11_harbor: "Curriculum", see12_homeshare: "Worksheets",
+  see13_ixl: "Learning Platform", see14_k5: "Worksheets", see15_kahoot: "Learning Platform",
+  see16_khan: "Learning Platform", see17_kumon: "Classes", see18_logic: "Curriculum",
+  see19_mathfocus: "Curriculum", see20_mathfun: "Learning Platform", see21_mammoth: "Curriculum",
+  see22_mathseeds: "App", see23_miaca: "Curriculum", see24_nautilus: "Curriculum",
+  see25_nightzoo: "Games", see26_oakmeadow: "Curriculum", see27_oaknational: "Curriculum",
+  see28_pbs: "Learning Platform", see29_powerhs: "Curriculum", see30_prodigy: "Games",
+  see31_shormann: "Classes", see32_simplyc: "Curriculum", see33_stmath: "Learning Platform",
+  see34_supercharged: "Curriculum", see35_tpt: "Marketplace", see36_teachtext: "Curriculum",
+  see37_underhome: "Curriculum", see38_weplaym: "Curriculum", see39_allreading: "Curriculum"
+};
+
+const resourceTypeOrder = ["Curriculum", "Learning Platform", "App", "Worksheets", "Books", "Classes", "Marketplace", "Games"];
+
 const translations = {
   en: {
     navExplore: "Explore resources", navAbout: "About SEE", navEducators: "For educators", signIn: "Sign in",
@@ -15,7 +33,7 @@ const translations = {
     heroDescription: "Trusted reviews from parents, educators, and researchers.", heroCta: "Explore resources",
     libraryEyebrow: "Learning resource library", libraryTitle: "Explore learning resources", resources: "resources",
     searchLabel: "Search learning resources", searchPlaceholder: "Search resources…", searchShort: "Search", subject: "Subject", age: "Age",
-    filterByTags: "Filter by tags", subjectsGroup: "Subjects", ageGroupsGroup: "Age group", systemsGroup: "Education system / region", costTypesGroup: "Cost type",
+    filterByTags: "Filter by tags", subjectsGroup: "Subjects", ageGroupsGroup: "Age group", resourceTypesGroup: "Resource type", systemsGroup: "Education system / region", costTypesGroup: "Cost type",
     cost: "Cost type", sort: "Sort", clear: "Clear", allSubjects: "All subjects", allAges: "All ages", allCosts: "All cost types",
     sortName: "Name A–Z", sortRating: "Highest SEE score", sortNewest: "Newest", emptyTitle: "No matching resources",
     emptyBody: "Try removing a filter or using a different search term.", aboutEyebrow: "About SEE",
@@ -24,8 +42,8 @@ const translations = {
     pointOneTitle: "Discover", pointOneBody: "Search by subject, age range, and cost type.", pointTwoTitle: "Review",
     pointTwoBody: "Read SEE and community perspectives in one place.", pointThreeTitle: "Choose",
     pointThreeBody: "Visit the source website and decide what fits your family.",
-    footerText: "Meeting demo · Resource information is being reviewed and may change.",
-    ageRange: "Age range", sourceType: "Resource type", seeScore: "Initial SEE score", originalCost: "Original recorded cost",
+    footerText: "Meeting demo · Resource information reviewed on September 16, 2026; prices may change.",
+    ageRange: "Age range", sourceType: "Resource type", seeScore: "SEE review score", originalCost: "Current pricing",
     costPending: "Verification pending", tags: "Tags", resourceOverview: "Resource overview", reviewsLabel: "Parent and educator reviews", noReviews: "No reviews are available yet.",
     visitWebsite: "Visit official website", readReviewSource: "Read third-party source", previous: "Previous", next: "Next", page: "Page", of: "of",
     signinTitle: "Sign in to your demo account", signinBody: "Use the prefilled demo account to try saving and comparing resources. No personal information is collected.",
@@ -38,7 +56,7 @@ const translations = {
     heroDescription: "汇集家长、教育者和研究人员的可信评价。", heroCta: "浏览资源",
     libraryEyebrow: "学习资源库", libraryTitle: "探索学习资源", resources: "个资源",
     searchLabel: "搜索学习资源", searchPlaceholder: "搜索资源…", searchShort: "搜索", subject: "学科", age: "年龄",
-    filterByTags: "按标签筛选", subjectsGroup: "学科", ageGroupsGroup: "年龄段", systemsGroup: "教育体系／适用地区", costTypesGroup: "费用类型",
+    filterByTags: "按标签筛选", subjectsGroup: "学科", ageGroupsGroup: "年龄段", resourceTypesGroup: "资源类型", systemsGroup: "教育体系／适用地区", costTypesGroup: "费用类型",
     cost: "费用类型", sort: "排序", clear: "清除", allSubjects: "所有学科", allAges: "所有年龄", allCosts: "所有费用类型",
     sortName: "名称 A–Z", sortRating: "SEE 评分最高", sortNewest: "最新添加", emptyTitle: "没有符合条件的资源",
     emptyBody: "请移除部分筛选条件或尝试其他关键词。", aboutEyebrow: "关于 SEE",
@@ -47,8 +65,8 @@ const translations = {
     pointOneTitle: "发现", pointOneBody: "按照学科、年龄和费用类型搜索。", pointTwoTitle: "了解",
     pointTwoBody: "在一个页面阅读 SEE 和社区的不同观点。", pointThreeTitle: "选择",
     pointThreeBody: "访问资源官方网站，判断它是否适合您的家庭。",
-    footerText: "会议演示版 · 资源信息正在核查，可能发生变化。",
-    ageRange: "适用年龄", sourceType: "资源类型", seeScore: "初始 SEE 评分", originalCost: "原表记录费用",
+    footerText: "会议演示版 · 资源信息已于 2026 年 9 月 16 日核查；价格可能变化。",
+    ageRange: "适用年龄", sourceType: "资源类型", seeScore: "SEE 评审评分", originalCost: "当前价格信息",
     costPending: "等待核实", tags: "标签", resourceOverview: "资源详细介绍", reviewsLabel: "家长与教育者评价", noReviews: "目前还没有评价。",
     visitWebsite: "访问官方网站", readReviewSource: "查看第三方资料来源", previous: "上一页", next: "下一页", page: "第", of: "页，共",
     signinTitle: "登录演示账号", signinBody: "使用预填的演示账号体验收藏与比较功能。我们不会收集个人信息。",
@@ -64,7 +82,7 @@ const pageSize = 9;
 const elements = {
   grid: document.querySelector("#resource-grid"), count: document.querySelector("#result-count"), pagination: document.querySelector("#pagination"),
   search: document.querySelector("#search-input"), subject: document.querySelector("#subject-filter"), age: document.querySelector("#age-filter"),
-  region: document.querySelector("#region-filter"), cost: document.querySelector("#cost-filter"), sort: document.querySelector("#sort-filter"), clear: document.querySelector("#clear-filters"),
+  type: document.querySelector("#type-filter"), cost: document.querySelector("#cost-filter"), sort: document.querySelector("#sort-filter"), clear: document.querySelector("#clear-filters"),
   empty: document.querySelector("#empty-state"), filterNote: document.querySelector("#active-filter-note"),
   signinDialog: document.querySelector("#signin-dialog"), languageButton: document.querySelector(".language-button"), languageMenu: document.querySelector(".language-menu"),
   menuToggle: document.querySelector(".menu-toggle"), mainNav: document.querySelector(".main-nav"),
@@ -83,7 +101,18 @@ const reviewsBySource = reviews.reduce((map, row) => {
 
 function t(key) { return translations[language][key] || translations.en[key] || key; }
 function escapeHtml(value) { return String(value ?? "").replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c])); }
+function normalizedResourceType(resource) { return resourceTypeBySourceId[resource.sourceId] || "Learning Platform"; }
+function localizedResourceType(type) {
+  const labels = {
+    Curriculum: "课程体系", "Learning Platform": "学习平台", App: "应用", Worksheets: "练习单",
+    Books: "书籍", Classes: "课程／辅导", Marketplace: "资源市场", Games: "学习游戏"
+  };
+  return language === "zh" ? (labels[type] || type) : type;
+}
 function ageTagOrder(tag) {
+  const controlledOrder = ["Preschool", "Pre-K", "Kindergarten", "Early Elementary", "Upper Elementary", "Middle School", "High School", "All Ages", "Placement-Based"];
+  const controlledIndex = controlledOrder.indexOf(tag);
+  if (controlledIndex >= 0) return controlledIndex;
   const match = tag.match(/Ages?\s*(\d+)/i);
   if (match) return Number(match[1]);
   if (/infant|baby|toddler/i.test(tag)) return 0;
@@ -95,20 +124,21 @@ function ageTagOrder(tag) {
   return 999;
 }
 function uniqueTags(category) {
+  if (category === "resourceType") return [...new Set(resources.map(normalizedResourceType))].sort((a, b) => resourceTypeOrder.indexOf(a) - resourceTypeOrder.indexOf(b));
   const tags = [...new Set(resources.flatMap(resource => resource[tagFieldByCategory[category]] || []))];
   return tags.sort((a,b) => category === "ageGroup" ? ageTagOrder(a) - ageTagOrder(b) || a.localeCompare(b) : a.localeCompare(b));
 }
 function option(value, label) { return `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`; }
 function checkedValues(container) { return [...container.querySelectorAll("input:checked")].map(input => input.value); }
 function checkboxOptions(category, selected = []) {
-  return uniqueTags(category).map(tag => `<label class="check-option"><input type="checkbox" value="${escapeHtml(tag)}" ${selected.includes(tag) ? "checked" : ""}><span>${escapeHtml(tag)}</span></label>`).join("");
+  return uniqueTags(category).map(tag => `<label class="check-option"><input type="checkbox" value="${escapeHtml(tag)}" ${selected.includes(tag) ? "checked" : ""}><span>${escapeHtml(category === "resourceType" ? localizedResourceType(tag) : tag)}</span></label>`).join("");
 }
 
 function buildFilters() {
-  const previous = { subject: checkedValues(elements.subject), age: checkedValues(elements.age), region: checkedValues(elements.region), cost: checkedValues(elements.cost), sort: elements.sort.value || "name" };
-  elements.subject.innerHTML = checkboxOptions("subject", previous.subject);
+  const previous = { subject: checkedValues(elements.subject), age: checkedValues(elements.age), type: checkedValues(elements.type), cost: checkedValues(elements.cost), sort: elements.sort.value || "name" };
   elements.age.innerHTML = checkboxOptions("ageGroup", previous.age);
-  elements.region.innerHTML = checkboxOptions("region", previous.region);
+  elements.subject.innerHTML = checkboxOptions("subject", previous.subject);
+  elements.type.innerHTML = checkboxOptions("resourceType", previous.type);
   elements.cost.innerHTML = checkboxOptions("costType", previous.cost);
   elements.sort.innerHTML = option("name", t("sortName")) + option("rating", t("sortRating")) + option("newest", t("sortNewest"));
   elements.sort.value = previous.sort;
@@ -117,10 +147,10 @@ function buildFilters() {
 function matchesTags(sourceId, category, selected) { return !selected.length || (tagsBySource.get(sourceId) || []).some(x => x.category === category && selected.includes(x.tag)); }
 function filteredResources() {
   const query = elements.search.value.trim().toLowerCase();
-  const selected = { subject: checkedValues(elements.subject), age: checkedValues(elements.age), region: checkedValues(elements.region), cost: checkedValues(elements.cost) };
+  const selected = { subject: checkedValues(elements.subject), age: checkedValues(elements.age), type: checkedValues(elements.type), cost: checkedValues(elements.cost) };
   const result = resources.filter(resource => {
     const haystack = [resource.resourceName, resource.sourceType, resource.ageGradeRange, resource.sourceSummaryEn, resource.sourceSummary, resource.sourceDescription, ...(tagsBySource.get(resource.sourceId) || []).map(x => x.tag)].join(" ").toLowerCase();
-    return (!query || haystack.includes(query)) && matchesTags(resource.sourceId, "subject", selected.subject) && matchesTags(resource.sourceId, "ageGroup", selected.age) && matchesTags(resource.sourceId, "region", selected.region) && matchesTags(resource.sourceId, "costType", selected.cost);
+    return (!query || haystack.includes(query)) && matchesTags(resource.sourceId, "subject", selected.subject) && matchesTags(resource.sourceId, "ageGroup", selected.age) && (!selected.type.length || selected.type.includes(normalizedResourceType(resource))) && matchesTags(resource.sourceId, "costType", selected.cost);
   });
   if (elements.sort.value === "rating") result.sort((a,b) => (Number(b.initialSeeScore)||0) - (Number(a.initialSeeScore)||0) || a.resourceName.localeCompare(b.resourceName));
   else if (elements.sort.value === "newest") result.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -130,8 +160,28 @@ function filteredResources() {
 
 function cardTags(resource) {
   const tags = tagsBySource.get(resource.sourceId) || [];
-  const preferred = [tags.find(x => x.category === "subject"), tags.find(x => x.category === "ageGroup")].filter(Boolean);
-  return preferred.slice(0,2).map(x => `<span class="tag">${escapeHtml(shortCardTag(x))}</span>`).join("");
+  const subject = tags.find(x => x.category === "subject");
+  const ageTag = tags.find(x => x.category === "ageGroup");
+  const labels = [subject ? shortCardTag(subject) : "", shortAgeRange(resource.ageGradeRange) || (ageTag ? shortCardTag(ageTag) : "")].filter(Boolean);
+  return labels.map(label => `<span class="tag">${escapeHtml(label)}</span>`).join("");
+}
+
+function shortAgeRange(value = "") {
+  if (/placement-based/i.test(value)) return language === "zh" ? "按水平分级" : "Placement-based";
+  const throughGrades = value.match(/(pre-?k|kindergarten|k|\d+)\s+through\s+(?:grade|year)\s+(\d+)/i);
+  if (throughGrades) {
+    const rawStart = throughGrades[1].toLowerCase().replace("-", "");
+    const start = rawStart === "prek" ? "Pre-K" : rawStart === "kindergarten" ? "K" : throughGrades[1].toUpperCase();
+    return language === "zh" ? `${start}–${throughGrades[2]} 年级` : `${start}–${throughGrades[2]}`;
+  }
+  const grades = value.match(/grades?\s+(pre-?k|k|\d+)\s*[-–~]\s*(\d+)/i);
+  if (grades) {
+    const start = grades[1].toLowerCase().replace("-", "") === "prek" ? "Pre-K" : grades[1].toUpperCase();
+    return language === "zh" ? `${start}–${grades[2]} 年级` : `Grades ${start}–${grades[2]}`;
+  }
+  const ages = value.match(/(\d+)\s*[-–~]\s*(\d+)/);
+  if (!ages) return value;
+  return language === "zh" ? `${ages[1]}–${ages[2]} 岁` : `Ages ${ages[1]}–${ages[2]}`;
 }
 
 function shortCardTag(item) {
@@ -185,12 +235,12 @@ function localizedSummary(resource) {
 function ratingStars(value) {
   const numeric = Number(value);
   if (!Number.isFinite(numeric)) return `<span class="rating-value">—</span>`;
-  const score = Math.max(0, Math.min(5, Math.round(numeric * 2) / 2));
+  const score = Math.max(0, Math.min(5, numeric));
   const stars = Array.from({ length: 5 }, (_, index) => {
-    const className = score >= index + 1 ? "full" : score >= index + 0.5 ? "half" : "empty";
-    return `<span class="score-star ${className}" aria-hidden="true">${className === "full" ? "★" : "☆"}</span>`;
+    const fill = Math.max(0, Math.min(100, (score - index) * 100));
+    return `<span class="score-star" style="--star-fill:${fill}%" aria-hidden="true">☆</span>`;
   }).join("");
-  return `<span class="star-meter" role="img" aria-label="${score} out of 5 stars">${stars}</span><span class="rating-value">${escapeHtml(numeric.toFixed(1))}</span>`;
+  return `<span class="star-meter" role="img" aria-label="${numeric.toFixed(1)} out of 5 stars">${stars}</span><span class="rating-value">${escapeHtml(numeric.toFixed(1))}</span>`;
 }
 
 function iconSvg(name) {
@@ -219,11 +269,12 @@ function resourceTypeIcon(sourceType = "") {
 
 function renderCard(resource) {
   const saved = window.SEE_ACCOUNT?.isSaved(resource.sourceId);
+  const resourceType = normalizedResourceType(resource);
   return `<article class="resource-card">
     <a class="card-click-target" href="resource.html?id=${encodeURIComponent(resource.sourceId)}" aria-label="${escapeHtml(resource.resourceName)}"></a>
     ${resourceImage(resource)}
     <div class="resource-body">
-      <div class="resource-type-row"><div class="resource-type">${resourceTypeIcon(resource.sourceType)}<span>${escapeHtml(shortSourceType(resource.sourceType) || t("dataReview"))}</span></div><button class="bookmark-button ${saved ? "saved" : ""}" type="button" data-bookmark-id="${escapeHtml(resource.sourceId)}" aria-pressed="${saved}" aria-label="${saved ? t("removeSaved") : t("saveResource")}" title="${saved ? t("removeSaved") : t("saveResource")}">${saved ? "★" : "☆"}</button></div>
+      <div class="resource-type-row"><div class="resource-type">${resourceTypeIcon(resourceType)}<span>${escapeHtml(localizedResourceType(resourceType) || t("dataReview"))}</span></div><button class="bookmark-button ${saved ? "saved" : ""}" type="button" data-bookmark-id="${escapeHtml(resource.sourceId)}" aria-pressed="${saved}" aria-label="${saved ? t("removeSaved") : t("saveResource")}" title="${saved ? t("removeSaved") : t("saveResource")}">${saved ? "★" : "☆"}</button></div>
       <h3>${escapeHtml(resource.resourceName)}</h3>
       <p class="resource-summary">${escapeHtml(localizedSummary(resource))}</p>
       <div class="tag-row">${cardTags(resource)}</div>
@@ -249,7 +300,7 @@ function renderResources() {
   const start = (currentPage - 1) * pageSize;
   elements.grid.innerHTML = result.slice(start, start + pageSize).map(renderCard).join("");
   elements.grid.hidden = result.length === 0; elements.empty.hidden = result.length !== 0;
-  const active = [elements.search.value.trim(), ...checkedValues(elements.subject), ...checkedValues(elements.age), ...checkedValues(elements.region), ...checkedValues(elements.cost)].filter(Boolean);
+  const active = [elements.search.value.trim(), ...checkedValues(elements.age), ...checkedValues(elements.subject), ...checkedValues(elements.type).map(localizedResourceType), ...checkedValues(elements.cost)].filter(Boolean);
   elements.filterNote.hidden = active.length === 0;
   elements.filterNote.textContent = active.length ? `${t("filterStatus")}: ${active.join(" · ")}` : "";
   renderPagination(result.length);
@@ -264,7 +315,7 @@ function applyLanguage(nextLanguage) {
 }
 
 elements.search.addEventListener("input", () => { currentPage=1; renderResources(); });
-[elements.subject, elements.age, elements.region, elements.cost].forEach(el => el.addEventListener("change", () => { currentPage=1; renderResources(); }));
+[elements.age, elements.subject, elements.type, elements.cost].forEach(el => el.addEventListener("change", () => { currentPage=1; renderResources(); }));
 elements.sort.addEventListener("change", () => { currentPage=1; renderResources(); });
 elements.clear.addEventListener("click", () => { elements.search.value=""; document.querySelectorAll(".checkbox-list input").forEach(input => { input.checked=false; }); elements.sort.value="name"; currentPage=1; renderResources(); });
 elements.grid.addEventListener("click", event => {

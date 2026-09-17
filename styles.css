@@ -136,8 +136,7 @@ h1 { font-size: clamp(48px, 5.2vw, 78px); letter-spacing: -.045em; margin-bottom
 .rating { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; }
 .star-meter { display: inline-flex; align-items: center; gap: 1px; color: #d8cba9; font-size: 17px; line-height: 1; }
 .score-star { position: relative; display: inline-block; width: 1em; height: 1em; color: #d8cba9; }
-.score-star.full { color: #e4ad00; }
-.score-star.half::before { content: "★"; position: absolute; inset: 0; width: 50%; overflow: hidden; color: #e4ad00; }
+.score-star::before { content: "★"; position: absolute; inset: 0; width: var(--star-fill, 0%); overflow: hidden; color: #e4ad00; }
 .rating-value { min-width: 2ch; color: var(--ink); font-size: 14px; font-variant-numeric: tabular-nums; }
 .card-open-hint { color: var(--forest); font-size: 25px; line-height: 1; }
 .empty-state { padding: 70px 20px; text-align: center; border: 1px dashed var(--line); border-radius: var(--radius); background: var(--cream); }
@@ -168,7 +167,7 @@ dialog::backdrop { background: rgba(21,31,24,.62); backdrop-filter: blur(3px); }
 .dialog-main { padding: 34px 42px 44px; }
 .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 26px; }
 .detail-item { background: #f7f8f4; border-radius: 12px; padding: 14px; }
-.detail-item span { display: block; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+.detail-item > span { display: block; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
 .review-block { border-top: 1px solid var(--line); padding-top: 22px; margin-top: 22px; }
 .description-block { border-top: 1px solid var(--line); padding-top: 22px; margin-top: 22px; }
 .description-block h3 { font-size: 25px; margin-bottom: 12px; }
@@ -247,8 +246,9 @@ dialog::backdrop { background: rgba(21,31,24,.62); backdrop-filter: blur(3px); }
 .compact-detail-intro .detail-lede { margin: 0 0 15px; font-size: 16px; line-height: 1.5; }
 .compact-metadata { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 0 0 14px; }
 .compact-metadata .detail-item { padding: 10px 12px; }
-.compact-metadata .detail-item span { font-size: 10px; }
-.compact-metadata .detail-item strong { display: block; overflow-wrap: anywhere; font-size: 13px; line-height: 1.35; }
+.compact-metadata .detail-item > span { font-size: 10px; }
+.compact-metadata .detail-item > strong { display: block; overflow-wrap: anywhere; font-size: 13px; line-height: 1.35; }
+.compact-metadata .detail-item > strong.detail-rating { display: inline-flex; overflow-wrap: normal; }
 .compact-actions { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .compact-actions .tag-row { min-width: 0; margin: 0; }
 .compact-actions .tag { padding: 4px 8px; font-size: 10.5px; }
@@ -280,6 +280,15 @@ dialog::backdrop { background: rgba(21,31,24,.62); backdrop-filter: blur(3px); }
 .compact-review-panel .review p { margin: 0; padding: 0 13px 14px; border-top: 1px solid var(--line); padding-top: 12px; font-size: 12.5px; line-height: 1.6; }
 .reviewer-line { display: flex; justify-content: space-between; gap: 10px; padding-right: 20px; font-size: 13px; }
 .review-rating { color: #b28400; white-space: nowrap; }
+.review-rating, .detail-rating { display: inline-flex; align-items: center; gap: 7px; }
+.review-rating .star-meter { font-size: 14px; }
+.review-rating .rating-value { font-size: 12px; }
+.detail-rating .star-meter { font-size: 16px; }
+.detail-rating .rating-value { font-size: 13px; }
+.review-average { display: grid; justify-items: end; gap: 6px; color: var(--muted); font-size: 11px; white-space: nowrap; }
+.review-average .star-meter { font-size: 15px; }
+.review-average .rating-value { color: var(--ink); font-size: 12px; font-weight: 800; }
+.pricing-detail strong { font-size: 13px; line-height: 1.35; }
 .reviewer-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
 .reviewer-badge { display: inline-flex; padding: 3px 7px; border: 1px solid #cfc0f7; border-radius: 999px; background: #efe8ff; color: #6340a5; font-size: 9.5px; font-weight: 800; }
 .reviewer-badge.reviewerOfMonth { border-color: #e7c246; background: #fff3bd; color: #795d00; }
