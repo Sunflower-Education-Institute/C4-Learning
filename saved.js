@@ -20,7 +20,7 @@
   function render() {
     window.SEE_ACCOUNT.updateAccountButton();
     if (!window.SEE_ACCOUNT.isSignedIn()) {
-      main.innerHTML = `<section class="saved-empty"><p class="eyebrow">Demo account</p><h1>Sign in to save and compare resources</h1><p>The prefilled demo account keeps your selections only in this browser.</p><button class="primary-button" type="button" data-open-signin>Sign in</button></section>`;
+      main.innerHTML = `<section class="saved-empty"><p class="eyebrow">Saved resources</p><h1>Sign in to save and compare resources</h1><p>Use the prefilled guest account. Your selections remain on this device.</p><button class="primary-button" type="button" data-open-signin>Sign in</button></section>`;
       main.querySelector("[data-open-signin]").addEventListener("click", () => window.SEE_ACCOUNT.openSignIn());
       return;
     }
@@ -28,7 +28,7 @@
     const savedResources = resources.filter(item => savedIds.has(item.sourceId));
     [...selected].forEach(id => { if (!savedIds.has(id)) selected.delete(id); });
     const chosen = savedResources.filter(item => selected.has(item.sourceId));
-    main.innerHTML = `<section class="profile-strip"><div class="demo-avatar">DP</div><div><p class="eyebrow">Demo account</p><h1>Demo Parent</h1><p>demo@sunflower.example · Saved only in this browser</p></div><button class="secondary-button" type="button" data-sign-out>Sign out</button></section>
+    main.innerHTML = `<section class="profile-strip"><div class="demo-avatar">GE</div><div><p class="eyebrow">Guest account</p><h1>Guest Explorer</h1><p>guest@mysunflower.org · Saved on this device</p></div><button class="secondary-button" type="button" data-sign-out>Sign out</button></section>
       <section class="saved-library"><div class="saved-heading"><div><p class="eyebrow">Your collection</p><h2>Saved resources</h2><p>Select 2–4 resources to compare. Open any title in a new tab if you prefer to review several pages yourself.</p></div><button class="primary-button compare-button" type="button" data-compare ${chosen.length < 2 ? "disabled" : ""}>Compare ${chosen.length || ""}</button></div>
       ${savedResources.length ? `<div class="saved-grid">${savedResources.map(item => `<article class="saved-card"><img src="assets/resources/${escapeHtml(item.imageFileName)}" alt="" onerror="this.remove()"><div><label class="compare-check"><input type="checkbox" data-compare-id="${escapeHtml(item.sourceId)}" ${selected.has(item.sourceId) ? "checked" : ""}><span>Compare</span></label><h3><a href="resource.html?id=${encodeURIComponent(item.sourceId)}" target="_blank">${escapeHtml(item.resourceName)} ↗</a></h3><p>${escapeHtml(item.sourceSummaryEn || item.sourceSummary || "")}</p><button class="remove-saved" type="button" data-remove-id="${escapeHtml(item.sourceId)}">Remove from saved</button></div></article>`).join("")}</div>` : `<div class="collection-empty"><h3>Your collection is empty</h3><p>Use the star on any resource card to save it here.</p><a class="primary-button" href="index.html#resources">Explore resources</a></div>`}
       <p class="compare-message" aria-live="polite">${chosen.length === 1 ? "Select at least one more resource to compare." : chosen.length === 4 ? "You can compare up to four resources." : ""}</p></section>

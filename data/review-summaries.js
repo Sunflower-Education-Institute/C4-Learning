@@ -1,7 +1,7 @@
 window.SEE_REVIEW_SUMMARIES = [
   {
     sourceId: "see1_abcmouse",
-    status: "demoPreGenerated",
+    status: "preGenerated",
     generatedAt: "2026-09-15",
     basedOnReviewCount: 1,
     content: {
@@ -19,7 +19,7 @@ window.SEE_REVIEW_SUMMARIES = [
   },
   {
     sourceId: "see2_allinone",
-    status: "demoPreGenerated",
+    status: "preGenerated",
     generatedAt: "2026-09-15",
     basedOnReviewCount: 1,
     content: {
@@ -37,7 +37,7 @@ window.SEE_REVIEW_SUMMARIES = [
   },
   {
     sourceId: "see3_ambleside",
-    status: "demoPreGenerated",
+    status: "preGenerated",
     generatedAt: "2026-09-15",
     basedOnReviewCount: 1,
     content: {
@@ -55,7 +55,7 @@ window.SEE_REVIEW_SUMMARIES = [
   },
   {
     sourceId: "see4_beastaca",
-    status: "demoPreGenerated",
+    status: "preGenerated",
     generatedAt: "2026-09-15",
     basedOnReviewCount: 2,
     content: {
@@ -73,7 +73,7 @@ window.SEE_REVIEW_SUMMARIES = [
   },
   {
     sourceId: "see39_allreading",
-    status: "demoPreGenerated",
+    status: "preGenerated",
     generatedAt: "2026-09-15",
     basedOnReviewCount: 2,
     content: {

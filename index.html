@@ -22,7 +22,7 @@
       <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#resources" data-i18n="navExplore">Explore resources</a>
-        <a href="#about" data-i18n="navAbout">About SEE</a>
+        <a href="https://mysunflower.org/" target="_blank" rel="noopener noreferrer" data-i18n="navAbout">About SEE</a>
         <a href="#for-educators" data-i18n="navEducators">For educators</a>
         <button class="language-button" type="button" aria-label="Choose language" aria-haspopup="true" aria-expanded="false">
           <svg class="lucide-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -118,7 +118,7 @@
         <div class="about-card">
           <p class="eyebrow" data-i18n="aboutEyebrow">About SEE</p>
           <h2 data-i18n="aboutTitle">Helping families make informed learning choices</h2>
-          <p data-i18n="aboutBody">The Sunflower Education Institute brings together resource information and reviews from parents, educators, and researchers. This meeting demo uses a curated local dataset and a browser-only demo account; it has no backend database.</p>
+          <p data-i18n="aboutBody">The Sunflower Education Institute brings together resource information and reviews from parents, educators, and researchers.</p>
         </div>
         <div class="about-points" id="for-educators">
           <article><span>01</span><h3 data-i18n="pointOneTitle">Discover</h3><p data-i18n="pointOneBody">Search by subject, age range, and cost type.</p></article>
@@ -130,25 +130,24 @@
 
     <footer>
       <img src="assets/brand/see-logo.png" alt="The Sunflower Education Institute" />
-      <p data-i18n="footerText">Meeting demo · Resource information reviewed on September 16, 2026; prices may change.</p>
     </footer>
 
     <dialog id="signin-dialog" class="signin-dialog">
       <button class="dialog-close" type="button" aria-label="Close">×</button>
-      <p class="eyebrow">Demo</p>
-      <h2 data-i18n="signinTitle">Sign in to your demo account</h2>
-      <p data-i18n="signinBody">Use the prefilled demo account to try saving and comparing resources. No personal information is collected.</p>
+      <p class="eyebrow">Saved resources</p>
+      <h2 data-i18n="signinTitle">Sign in to save and compare</h2>
+      <p data-i18n="signinBody">Use the prefilled guest account. No personal information is collected.</p>
       <form id="demo-signin-form" class="signin-form">
-        <label><span data-i18n="emailLabel">Email</span><input type="email" value="demo@sunflower.example" readonly /></label>
-        <label><span data-i18n="passwordLabel">Password</span><input type="password" value="demo-only" readonly /></label>
+        <label><span data-i18n="emailLabel">Email</span><input type="email" value="guest@mysunflower.org" readonly /></label>
+        <label><span data-i18n="passwordLabel">Password</span><input type="password" value="guest-access" readonly /></label>
         <button class="primary-button dialog-action" type="submit" data-i18n="loginButton">Log in</button>
       </form>
-      <small class="demo-privacy" data-i18n="demoPrivacy">Demo only · Data is stored in this browser.</small>
+      <small class="demo-privacy" data-i18n="demoPrivacy">Saved resources are stored on this device.</small>
     </dialog>
 
     <script src="data/resources.js?v=20260916-1"></script>
     <script src="data/reviews.js?v=20260916-1"></script>
     <script src="account.js?v=20260915-1"></script>
-    <script src="app.js?v=20260916-3"></script>
+    <script src="app.js?v=20260916-4"></script>
   </body>
 </html>
