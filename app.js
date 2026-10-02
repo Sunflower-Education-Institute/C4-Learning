@@ -47,7 +47,7 @@ const translations = {
     visitWebsite: "Visit official website", readReviewSource: "Read third-party source", previous: "Previous", next: "Next", page: "Page", of: "of",
     signinTitle: "Sign in to save and compare", signinBody: "Use the prefilled guest account. No personal information is collected.",
     emailLabel: "Email", passwordLabel: "Password", loginButton: "Log in", demoPrivacy: "Saved resources are stored on this device.", saveResource: "Save resource", removeSaved: "Remove from saved",
-    filterStatus: "Showing results for", dataReview: "Information review pending", findResources: "Find resources", showFilters: "Show search and filters"
+    filterStatus: "Showing results for", dataReview: "Information review pending", findResources: "Find resources", showFilters: "Show search and filters", savedResources: "Saved resources", chooseLanguage: "Choose language", openMenu: "Open menu", closeFilters: "Close filters", resourceFilters: "Resource filters", ratingLabel: "out of 5 stars"
   },
   zh: {
     navExplore: "浏览资源", navAbout: "关于 SEE", navEducators: "推荐资源", signIn: "登录",
@@ -69,11 +69,38 @@ const translations = {
     visitWebsite: "访问官方网站", readReviewSource: "查看第三方资料来源", previous: "上一页", next: "下一页", page: "第", of: "页，共",
     signinTitle: "登录并收藏、比较资源", signinBody: "使用预填的访客账号登录。我们不会收集个人信息。",
     emailLabel: "邮箱", passwordLabel: "密码", loginButton: "登录", demoPrivacy: "收藏的资源保存在此设备上。", saveResource: "收藏资源", removeSaved: "取消收藏",
-    filterStatus: "当前筛选", dataReview: "信息等待核查", findResources: "查找资源", showFilters: "打开搜索和筛选"
+    filterStatus: "当前筛选", dataReview: "信息等待核查", findResources: "查找资源", showFilters: "打开搜索和筛选", savedResources: "已收藏资源", chooseLanguage: "选择语言", openMenu: "打开菜单", closeFilters: "关闭筛选", resourceFilters: "资源筛选", ratingLabel: "分（满分 5 分）"
+  },
+  es: {
+    navExplore: "Explorar recursos", navAbout: "Acerca de SEE", navEducators: "Sugerir un recurso", signIn: "Iniciar sesión",
+    eyebrow: "Recursos de aprendizaje para cada familia", heroTitle: "Encuentra recursos adecuados para tu hijo",
+    heroDescription: "Reseñas confiables de familias, educadores e investigadores.", heroCta: "Explorar recursos",
+    libraryEyebrow: "Biblioteca de recursos educativos", libraryTitle: "Explorar recursos educativos", resources: "recursos",
+    searchLabel: "Buscar recursos educativos", searchPlaceholder: "Buscar recursos…", searchShort: "Buscar", subject: "Materia", age: "Edad",
+    filterByTags: "Filtrar por etiquetas", subjectsGroup: "Materias", ageGroupsGroup: "Grupo de edad", resourceTypesGroup: "Tipo de recurso", systemsGroup: "Sistema educativo / región", costTypesGroup: "Tipo de costo",
+    cost: "Tipo de costo", sort: "Ordenar", clear: "Borrar", allSubjects: "Todas las materias", allAges: "Todas las edades", allCosts: "Todos los costos",
+    sortName: "Nombre A–Z", sortRating: "Mayor puntuación SEE", sortNewest: "Más recientes", emptyTitle: "No hay recursos coincidentes",
+    emptyBody: "Prueba a quitar un filtro o usar otro término de búsqueda.", aboutEyebrow: "Acerca de SEE",
+    aboutTitle: "Ayudamos a las familias a elegir con información", aboutBody: "The Sunflower Education Institute reúne información y reseñas de familias, educadores e investigadores.",
+    pointOneTitle: "Descubrir", pointOneBody: "Busca por materia, edad y tipo de costo.", pointTwoTitle: "Revisar", pointTwoBody: "Lee perspectivas de SEE y de la comunidad en un solo lugar.", pointThreeTitle: "Elegir", pointThreeBody: "Visita el sitio oficial y decide qué se adapta a tu familia.",
+    previous: "Anterior", next: "Siguiente", page: "Página", signinTitle: "Inicia sesión para guardar y comparar", signinBody: "Usa la cuenta de invitado precargada. No recopilamos información personal.", emailLabel: "Correo electrónico", passwordLabel: "Contraseña", loginButton: "Entrar", demoPrivacy: "Los recursos guardados permanecen en este dispositivo.", saveResource: "Guardar recurso", removeSaved: "Quitar de guardados", filterStatus: "Resultados para", dataReview: "Información pendiente de revisión", findResources: "Buscar recursos", showFilters: "Mostrar búsqueda y filtros", savedResources: "Recursos guardados", chooseLanguage: "Elegir idioma", openMenu: "Abrir menú", closeFilters: "Cerrar filtros", resourceFilters: "Filtros de recursos", ratingLabel: "de 5 estrellas"
+  },
+  ar: {
+    navExplore: "استكشاف الموارد", navAbout: "عن SEE", navEducators: "اقتراح مورد", signIn: "تسجيل الدخول",
+    eyebrow: "موارد تعلم لكل أسرة", heroTitle: "اعثر على موارد تناسب طفلك", heroDescription: "مراجعات موثوقة من الأسر والمعلمين والباحثين.", heroCta: "استكشاف الموارد",
+    libraryEyebrow: "مكتبة موارد التعلم", libraryTitle: "استكشاف موارد التعلم", resources: "موردًا",
+    searchLabel: "البحث في موارد التعلم", searchPlaceholder: "ابحث عن موارد…", searchShort: "بحث", subject: "المادة", age: "العمر",
+    filterByTags: "التصفية حسب الوسوم", subjectsGroup: "المواد", ageGroupsGroup: "الفئة العمرية", resourceTypesGroup: "نوع المورد", systemsGroup: "النظام التعليمي / المنطقة", costTypesGroup: "نوع التكلفة",
+    cost: "نوع التكلفة", sort: "ترتيب", clear: "مسح", allSubjects: "كل المواد", allAges: "كل الأعمار", allCosts: "كل أنواع التكلفة",
+    sortName: "الاسم أ–ي", sortRating: "أعلى تقييم من SEE", sortNewest: "الأحدث", emptyTitle: "لا توجد موارد مطابقة", emptyBody: "جرّب إزالة أحد عوامل التصفية أو استخدام عبارة بحث مختلفة.",
+    aboutEyebrow: "عن SEE", aboutTitle: "مساعدة الأسر على اتخاذ خيارات تعلم مدروسة", aboutBody: "يجمع The Sunflower Education Institute معلومات الموارد ومراجعات الأسر والمعلمين والباحثين.",
+    pointOneTitle: "اكتشف", pointOneBody: "ابحث حسب المادة والفئة العمرية ونوع التكلفة.", pointTwoTitle: "راجع", pointTwoBody: "اقرأ آراء SEE والمجتمع في مكان واحد.", pointThreeTitle: "اختر", pointThreeBody: "زر الموقع الرسمي للمورد وحدد ما يناسب أسرتك.",
+    previous: "السابق", next: "التالي", page: "الصفحة", signinTitle: "سجّل الدخول للحفظ والمقارنة", signinBody: "استخدم حساب الضيف المعبأ مسبقًا. لا نجمع معلومات شخصية.", emailLabel: "البريد الإلكتروني", passwordLabel: "كلمة المرور", loginButton: "دخول", demoPrivacy: "تُحفظ الموارد على هذا الجهاز.", saveResource: "حفظ المورد", removeSaved: "إزالة من المحفوظات", filterStatus: "عرض نتائج", dataReview: "المعلومات بانتظار المراجعة", findResources: "العثور على موارد", showFilters: "إظهار البحث والتصفية", savedResources: "الموارد المحفوظة", chooseLanguage: "اختيار اللغة", openMenu: "فتح القائمة", closeFilters: "إغلاق عوامل التصفية", resourceFilters: "عوامل تصفية الموارد", ratingLabel: "من 5 نجوم"
   }
 };
 
-let language = localStorage.getItem("seeLanguage") || "en";
+const supportedLanguages = ["en", "zh", "es", "ar"];
+let language = supportedLanguages.includes(localStorage.getItem("seeLanguage")) ? localStorage.getItem("seeLanguage") : "en";
 let currentPage = 1;
 const pageSize = 9;
 
@@ -102,11 +129,18 @@ function escapeHtml(value) { return String(value ?? "").replace(/[&<>'"]/g, c =>
 function normalizedResourceType(resource) { return resourceTypeBySourceId[resource.sourceId] || "Learning Platform"; }
 function localizedResourceType(type) {
   const labels = {
-    Curriculum: "课程体系", "Learning Platform": "学习平台", App: "应用", Worksheets: "练习单",
-    Books: "书籍", Classes: "课程／辅导", Marketplace: "资源市场", Games: "学习游戏"
+    zh: { Curriculum: "课程体系", "Learning Platform": "学习平台", App: "应用", Worksheets: "练习单", Books: "书籍", Classes: "课程／辅导", Marketplace: "资源市场", Games: "学习游戏" },
+    es: { Curriculum: "Currículo", "Learning Platform": "Plataforma de aprendizaje", App: "Aplicación", Worksheets: "Hojas de trabajo", Books: "Libros", Classes: "Clases", Marketplace: "Mercado", Games: "Juegos" },
+    ar: { Curriculum: "منهج", "Learning Platform": "منصة تعلم", App: "تطبيق", Worksheets: "أوراق عمل", Books: "كتب", Classes: "دروس", Marketplace: "سوق", Games: "ألعاب" }
   };
-  return language === "zh" ? (labels[type] || type) : type;
+  return labels[language]?.[type] || type;
 }
+const localizedTagLabels = {
+  zh: { "Arts & Creativity": "艺术与创意", "English & Reading": "英语与阅读", Languages: "语言", Math: "数学", "Multi-subject": "多学科", "STEM & Technology": "科学、技术、工程与数学", "Social Studies & History": "社会研究与历史", "All Ages": "所有年龄", "Early Elementary": "小学低年级", "High School": "高中", Kindergarten: "幼儿园", "Middle School": "初中", "Placement-Based": "按水平分级", "Pre-K": "幼儿园预备班", Preschool: "学前阶段", "Upper Elementary": "小学高年级", Free: "免费", Freemium: "免费增值", "Local Tuition": "本地学费", "One-time Purchase": "一次性购买", "Pricing Unverified": "价格待核实", Subscription: "订阅", "Variable Pricing": "价格因方案而异" },
+  es: { "Arts & Creativity": "Arte y creatividad", "English & Reading": "Inglés y lectura", Languages: "Idiomas", Math: "Matemáticas", "Multi-subject": "Varias materias", "STEM & Technology": "STEM y tecnología", "Social Studies & History": "Estudios sociales e historia", "All Ages": "Todas las edades", "Early Elementary": "Primaria inicial", "High School": "Secundaria superior", Kindergarten: "Kindergarten", "Middle School": "Secundaria media", "Placement-Based": "Según nivel", "Pre-K": "Pre-K", Preschool: "Preescolar", "Upper Elementary": "Primaria superior", Free: "Gratis", Freemium: "Gratis con opción de pago", "Local Tuition": "Matrícula local", "One-time Purchase": "Compra única", "Pricing Unverified": "Precio sin verificar", Subscription: "Suscripción", "Variable Pricing": "Precio variable" },
+  ar: { "Arts & Creativity": "الفنون والإبداع", "English & Reading": "الإنجليزية والقراءة", Languages: "اللغات", Math: "الرياضيات", "Multi-subject": "مواد متعددة", "STEM & Technology": "العلوم والتقنية والهندسة والرياضيات", "Social Studies & History": "الدراسات الاجتماعية والتاريخ", "All Ages": "جميع الأعمار", "Early Elementary": "المرحلة الابتدائية المبكرة", "High School": "المرحلة الثانوية", Kindergarten: "الروضة", "Middle School": "المرحلة المتوسطة", "Placement-Based": "بحسب المستوى", "Pre-K": "ما قبل الروضة", Preschool: "ما قبل المدرسة", "Upper Elementary": "المرحلة الابتدائية العليا", Free: "مجاني", Freemium: "مجاني مع خيارات مدفوعة", "Local Tuition": "رسوم محلية", "One-time Purchase": "شراء لمرة واحدة", "Pricing Unverified": "السعر غير متحقق منه", Subscription: "اشتراك", "Variable Pricing": "سعر متغير" }
+};
+function localizedTag(tag) { return localizedTagLabels[language]?.[tag] || tag; }
 function ageTagOrder(tag) {
   const controlledOrder = ["Preschool", "Pre-K", "Kindergarten", "Early Elementary", "Upper Elementary", "Middle School", "High School", "All Ages", "Placement-Based"];
   const controlledIndex = controlledOrder.indexOf(tag);
@@ -129,7 +163,7 @@ function uniqueTags(category) {
 function option(value, label) { return `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`; }
 function checkedValues(container) { return [...container.querySelectorAll("input:checked")].map(input => input.value); }
 function checkboxOptions(category, selected = []) {
-  return uniqueTags(category).map(tag => `<label class="check-option"><input type="checkbox" value="${escapeHtml(tag)}" ${selected.includes(tag) ? "checked" : ""}><span>${escapeHtml(category === "resourceType" ? localizedResourceType(tag) : tag)}</span></label>`).join("");
+  return uniqueTags(category).map(tag => `<label class="check-option"><input type="checkbox" value="${escapeHtml(tag)}" ${selected.includes(tag) ? "checked" : ""}><span>${escapeHtml(category === "resourceType" ? localizedResourceType(tag) : localizedTag(tag))}</span></label>`).join("");
 }
 
 function buildFilters() {
@@ -147,7 +181,10 @@ function filteredResources() {
   const query = elements.search.value.trim().toLowerCase();
   const selected = { subject: checkedValues(elements.subject), age: checkedValues(elements.age), type: checkedValues(elements.type), cost: checkedValues(elements.cost) };
   const result = resources.filter(resource => {
-    const haystack = [resource.resourceName, resource.sourceType, resource.ageGradeRange, resource.sourceSummaryEn, resource.sourceSummary, resource.sourceDescription, ...(tagsBySource.get(resource.sourceId) || []).map(x => x.tag)].join(" ").toLowerCase();
+    const localizedText = language === "zh"
+      ? [resource.sourceSummary, resource.sourceDescription]
+      : language === "en" ? [resource.sourceSummaryEn, resource.shortDescriptionEn] : [window.SEE_LOCALIZED_CONTENT?.[language]?.summaries?.[resource.sourceId]];
+    const haystack = [resource.resourceName, resource.sourceType, resource.ageGradeRange, ...localizedText, ...(tagsBySource.get(resource.sourceId) || []).map(x => x.tag)].join(" ").toLowerCase();
     return (!query || haystack.includes(query)) && matchesTags(resource.sourceId, "subject", selected.subject) && matchesTags(resource.sourceId, "ageGroup", selected.age) && (!selected.type.length || selected.type.includes(normalizedResourceType(resource))) && matchesTags(resource.sourceId, "costType", selected.cost);
   });
   if (elements.sort.value === "rating") result.sort((a,b) => (Number(b.initialSeeScore)||0) - (Number(a.initialSeeScore)||0) || a.resourceName.localeCompare(b.resourceName));
@@ -165,27 +202,36 @@ function cardTags(resource) {
 }
 
 function shortAgeRange(value = "") {
-  if (/placement-based/i.test(value)) return language === "zh" ? "按水平分级" : "Placement-based";
+  if (/placement-based/i.test(value)) return ({ zh: "按水平分级", es: "Según nivel", ar: "بحسب المستوى" }[language] || "Placement-based");
   const throughGrades = value.match(/(pre-?k|kindergarten|k|\d+)\s+through\s+(?:grade|year)\s+(\d+)/i);
   if (throughGrades) {
     const rawStart = throughGrades[1].toLowerCase().replace("-", "");
     const start = rawStart === "prek" ? "Pre-K" : rawStart === "kindergarten" ? "K" : throughGrades[1].toUpperCase();
-    return language === "zh" ? `${start}–${throughGrades[2]} 年级` : `${start}–${throughGrades[2]}`;
+    if (language === "zh") return `${start}–${throughGrades[2]} 年级`;
+    if (language === "es") return `Grados ${start}–${throughGrades[2]}`;
+    if (language === "ar") return `الصفوف ${start}–${throughGrades[2]}`;
+    return `${start}–${throughGrades[2]}`;
   }
   const grades = value.match(/grades?\s+(pre-?k|k|\d+)\s*[-–~]\s*(\d+)/i);
   if (grades) {
     const start = grades[1].toLowerCase().replace("-", "") === "prek" ? "Pre-K" : grades[1].toUpperCase();
-    return language === "zh" ? `${start}–${grades[2]} 年级` : `Grades ${start}–${grades[2]}`;
+    if (language === "zh") return `${start}–${grades[2]} 年级`;
+    if (language === "es") return `Grados ${start}–${grades[2]}`;
+    if (language === "ar") return `الصفوف ${start}–${grades[2]}`;
+    return `Grades ${start}–${grades[2]}`;
   }
   const ages = value.match(/(\d+)\s*[-–~]\s*(\d+)/);
   if (!ages) return value;
-  return language === "zh" ? `${ages[1]}–${ages[2]} 岁` : `Ages ${ages[1]}–${ages[2]}`;
+  if (language === "zh") return `${ages[1]}–${ages[2]} 岁`;
+  if (language === "es") return `Edades ${ages[1]}–${ages[2]}`;
+  if (language === "ar") return `الأعمار ${ages[1]}–${ages[2]}`;
+  return `Ages ${ages[1]}–${ages[2]}`;
 }
 
 function shortCardTag(item) {
   if (item.category === "ageGroup") {
     const ages = item.tag.match(/Ages?\s*(\d+)\s*[-–~]\s*(\d+)/i);
-    if (ages) return language === "zh" ? `${ages[1]}–${ages[2]} 岁` : `Ages ${ages[1]}–${ages[2]}`;
+    if (ages) return shortAgeRange(item.tag);
   }
   const subjectLabels = {
     "Arts/Creativity": { en: "Arts & Creativity", zh: "艺术与创意" },
@@ -195,7 +241,7 @@ function shortCardTag(item) {
     "Social Studies/History": { en: "History", zh: "历史／社会" },
     "STEM/Technology": { en: "STEM", zh: "STEM" }
   };
-  return subjectLabels[item.tag]?.[language] || item.tag;
+  return subjectLabels[item.tag]?.[language] || localizedTag(item.tag);
 }
 
 function shortSourceType(sourceType = "") {
@@ -227,7 +273,9 @@ function resourceImage(resource) {
 }
 
 function localizedSummary(resource) {
-  return language === "zh" ? (resource.sourceSummary || resource.sourceSummaryEn || "") : (resource.sourceSummaryEn || resource.sourceSummary || "");
+  if (language === "zh") return resource.sourceSummary || resource.shortDescriptionZh || "";
+  if (language === "en") return resource.sourceSummaryEn || resource.shortDescriptionEn || "";
+  return window.SEE_LOCALIZED_CONTENT?.[language]?.summaries?.[resource.sourceId] || "";
 }
 
 function ratingStars(value) {
@@ -238,7 +286,7 @@ function ratingStars(value) {
     const fill = Math.max(0, Math.min(100, (score - index) * 100));
     return `<span class="score-star" style="--star-fill:${fill}%" aria-hidden="true">☆</span>`;
   }).join("");
-  return `<span class="star-meter" role="img" aria-label="${numeric.toFixed(1)} out of 5 stars">${stars}</span><span class="rating-value">${escapeHtml(numeric.toFixed(1))}</span>`;
+  return `<span class="star-meter" role="img" aria-label="${numeric.toFixed(1)} ${t("ratingLabel")}">${stars}</span><span class="rating-value">${escapeHtml(numeric.toFixed(1))}</span>`;
 }
 
 function iconSvg(name) {
@@ -298,17 +346,25 @@ function renderResources() {
   const start = (currentPage - 1) * pageSize;
   elements.grid.innerHTML = result.slice(start, start + pageSize).map(renderCard).join("");
   elements.grid.hidden = result.length === 0; elements.empty.hidden = result.length !== 0;
-  const active = [elements.search.value.trim(), ...checkedValues(elements.age), ...checkedValues(elements.subject), ...checkedValues(elements.type).map(localizedResourceType), ...checkedValues(elements.cost)].filter(Boolean);
+  const active = [elements.search.value.trim(), ...checkedValues(elements.age).map(localizedTag), ...checkedValues(elements.subject).map(localizedTag), ...checkedValues(elements.type).map(localizedResourceType), ...checkedValues(elements.cost).map(localizedTag)].filter(Boolean);
   elements.filterNote.hidden = active.length === 0;
   elements.filterNote.textContent = active.length ? `${t("filterStatus")}: ${active.join(" · ")}` : "";
   renderPagination(result.length);
 }
 
 function applyLanguage(nextLanguage) {
-  language = nextLanguage; localStorage.setItem("seeLanguage", language); document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
+  language = supportedLanguages.includes(nextLanguage) ? nextLanguage : "en";
+  localStorage.setItem("seeLanguage", language);
+  document.documentElement.lang = language === "zh" ? "zh-Hans" : language;
+  document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+  document.title = ({ zh: "SEE 学习资源", es: "Recursos educativos de SEE", ar: "موارد SEE التعليمية" }[language] || "SEE Learning Resources");
   document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll("[data-i18n-placeholder]").forEach(el => { el.placeholder = t(el.dataset.i18nPlaceholder); });
   document.querySelectorAll("[data-language]").forEach(el => el.classList.toggle("active", el.dataset.language === language));
+  elements.languageButton.setAttribute("aria-label", t("chooseLanguage"));
+  elements.menuToggle.setAttribute("aria-label", t("openMenu"));
+  elements.filterSidebar.setAttribute("aria-label", t("resourceFilters"));
+  elements.filterClose.setAttribute("aria-label", t("closeFilters"));
   buildFilters(); renderResources(); window.SEE_ACCOUNT?.updateAccountButton();
 }
 

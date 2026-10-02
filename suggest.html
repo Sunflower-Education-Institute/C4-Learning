@@ -6,7 +6,7 @@
     <meta name="description" content="Recommend a high-quality learning resource for SEE to research and consider for the learning resource library." />
     <title>Suggest a learning resource · SEE</title>
     <link rel="icon" type="image/png" href="assets/brand/see-logo-symbol.png" />
-    <link rel="stylesheet" href="styles.css?v=20260916-5" />
+    <link rel="stylesheet" href="styles.css?v=20261001-2" />
   </head>
   <body>
     <a class="skip-link" href="#suggest-main">Skip to the suggestion form</a>
@@ -18,7 +18,9 @@
       <nav class="main-nav page-nav" aria-label="Main navigation">
         <a href="index.html#resources" data-copy="navResources">Explore resources</a>
         <a href="https://mysunflower.org/" target="_blank" rel="noopener noreferrer" data-copy="navAbout">About SEE</a>
-        <button class="text-language-button" type="button" data-suggest-language>中文</button>
+        <select class="text-language-select" data-suggest-language aria-label="Choose language">
+          <option value="en">English</option><option value="zh">中文</option><option value="es">Español</option><option value="ar">العربية</option>
+        </select>
       </nav>
     </header>
 
@@ -138,6 +140,6 @@
     <footer><img src="assets/brand/see-logo.png" alt="The Sunflower Education Institute" /></footer>
 
     <script src="suggest-config.js"></script>
-    <script src="suggest.js?v=20260916-1"></script>
+    <script src="suggest.js?v=20261001-2"></script>
   </body>
 </html>

@@ -56,6 +56,7 @@ a { color: inherit; }
 .sign-in { border: 0; background: transparent; color: var(--ink); padding: 10px 0; cursor: pointer; font-weight: 600; }
 .sign-in.signed-in { color: var(--forest); }
 .text-language-button { border: 1px solid var(--line); border-radius: 9px; background: white; padding: 8px 12px; cursor: pointer; font-weight: 700; }
+.text-language-select { border: 1px solid var(--line); border-radius: 9px; background: white; color: var(--ink); padding: 8px 30px 8px 10px; cursor: pointer; font: inherit; font-weight: 700; }
 .language-button { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: white; display: grid; place-items: center; cursor: pointer; }
 .language-button:hover, .language-button:focus { background: var(--sage); border-color: var(--forest); }
 .lucide-icon { width: 20px; height: 20px; display: block; }
@@ -63,6 +64,16 @@ a { color: inherit; }
 .language-menu.open { display: grid; }
 .language-menu button { border: 0; background: transparent; text-align: left; padding: 10px 12px; border-radius: 8px; cursor: pointer; }
 .language-menu button:hover, .language-menu button.active { background: var(--sage); color: var(--forest-dark); }
+
+html[dir="rtl"] body { direction: rtl; }
+html[dir="rtl"] .language-menu { right: auto; left: 58px; }
+html[dir="rtl"] .language-menu button,
+html[dir="rtl"] .resource-card,
+html[dir="rtl"] .compact-detail-intro,
+html[dir="rtl"] .ai-summary-panel,
+html[dir="rtl"] .compact-review-panel,
+html[dir="rtl"] .suggest-card,
+html[dir="rtl"] .suggest-process { text-align: right; }
 .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); background: white; border-radius: 10px; padding: 10px; }
 .menu-toggle span { display: block; height: 2px; background: var(--ink); margin: 4px 0; }
 

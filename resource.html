@@ -6,7 +6,7 @@
     <meta name="description" content="SEE learning resource details." />
     <title>Resource details · SEE</title>
     <link rel="icon" type="image/png" href="assets/brand/see-logo-symbol.png" />
-    <link rel="stylesheet" href="styles.css?v=20260916-4" />
+    <link rel="stylesheet" href="styles.css?v=20261001-2" />
   </head>
   <body>
     <a class="skip-link" href="#resource-detail">Skip to resource details</a>
@@ -18,7 +18,9 @@
       <nav class="main-nav page-nav" aria-label="Main navigation">
         <a href="index.html#resources">Explore resources</a>
         <a href="suggest.html">Suggest a resource</a>
-        <button class="text-language-button" type="button" data-toggle-language>中文</button>
+        <select class="text-language-select" data-language-select aria-label="Choose language">
+          <option value="en">English</option><option value="zh">中文</option><option value="es">Español</option><option value="ar">العربية</option>
+        </select>
         <button class="sign-in" type="button">Sign in</button>
       </nav>
     </header>
@@ -42,11 +44,12 @@
       <small class="demo-privacy">Saved resources are stored on this device.</small>
     </dialog>
 
-    <script src="data/resources.js?v=20260916-1"></script>
+    <script src="data/resources.js?v=20261001-1"></script>
     <script src="data/reviews.js?v=20260916-1"></script>
     <script src="data/review-summaries.js?v=20260916-1"></script>
     <script src="data/reviewers.js"></script>
-    <script src="account.js?v=20260915-1"></script>
-    <script src="resource.js?v=20260916-4"></script>
+    <script src="data/localizations.js?v=20261001-1"></script>
+    <script src="account.js?v=20261001-2"></script>
+    <script src="resource.js?v=20261001-2"></script>
   </body>
 </html>

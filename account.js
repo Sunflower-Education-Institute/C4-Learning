@@ -25,8 +25,12 @@
   function updateAccountButton() {
     const button = document.querySelector(".sign-in");
     if (!button) return;
-    const chinese = document.documentElement.lang.startsWith("zh");
-    button.textContent = isSignedIn() ? (chinese ? "我的收藏" : "My saved") : (chinese ? "登录" : "Sign in");
+    const locale = document.documentElement.lang;
+    const labels = locale.startsWith("zh") ? { saved: "我的收藏", signin: "登录" }
+      : locale === "es" ? { saved: "Mis guardados", signin: "Iniciar sesión" }
+      : locale === "ar" ? { saved: "محفوظاتي", signin: "تسجيل الدخول" }
+      : { saved: "My saved", signin: "Sign in" };
+    button.textContent = isSignedIn() ? labels.saved : labels.signin;
     button.classList.toggle("signed-in", isSignedIn());
   }
 

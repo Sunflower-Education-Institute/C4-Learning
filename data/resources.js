@@ -288,7 +288,7 @@ window.SEE_RESOURCES = [
     "resourceName": "CTC Math by Patrick Murray",
     "ageGradeRange": "Grades K-12",
     "sourceType": "Curriculum",
-    "officialUrl": "https://www.ctcmath.com/faq",
+    "officialUrl": "https://www.ctcmath.com",
     "reviewSourceUrl": "",
     "accessUrlOriginal": "https://www.ctcmath.com/",
     "urlAuditStatus": "officialMatch",

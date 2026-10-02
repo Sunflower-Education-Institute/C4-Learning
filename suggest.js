@@ -7,7 +7,8 @@
   const reason = document.querySelector("#recommendation");
   const reasonCount = document.querySelector("#reason-count");
   const languageButton = document.querySelector("[data-suggest-language]");
-  let language = localStorage.getItem("seeLanguage") === "zh" ? "zh" : "en";
+  const supportedLanguages = ["en", "zh", "es", "ar"];
+  let language = supportedLanguages.includes(localStorage.getItem("seeLanguage")) ? localStorage.getItem("seeLanguage") : "en";
 
   const copy = {
     en: {
@@ -51,6 +52,20 @@
       required: "请填写此必填项目。", invalidUrl: "请输入以 http:// 或 https:// 开头的完整网址。",
       invalidEmail: "请输入有效的邮箱地址。", sending: "正在提交……", success: "谢谢！您的推荐已发送给 SEE 编辑团队。",
       failed: "推荐暂时无法发送，请稍后再试。"
+    },
+    es: {
+      navResources: "Explorar recursos", navAbout: "Acerca de SEE", eyebrow: "Recomendaciones de la comunidad", title: "Sugerir un recurso educativo", intro: "¿Conoces un recurso de calidad que falta en nuestra biblioteca? Cuéntanos por qué podría ayudar a las familias. Cada sugerencia se investiga y revisa antes de incluirse.",
+      processEyebrow: "Qué sucede después", stepOneTitle: "Tú recomiendas", stepOneBody: "Comparte el recurso y explica por qué es útil.", stepTwoTitle: "SEE investiga", stepTwoBody: "Nuestro equipo revisa la fuente, el público, el precio y la información de apoyo.", stepThreeTitle: "Los editores deciden", stepThreeBody: "Los recursos aprobados pasan por el mismo proceso editorial que el resto de la biblioteca.", privacy: "Tu nombre y correo son opcionales y nunca aparecerán en la biblioteca pública.",
+      formEyebrow: "Sugerencia de recurso", formTitle: "Dinos qué deberíamos revisar", requiredNote: "* Obligatorio", resourceName: "Nombre del recurso *", resourceNamePlaceholder: "p. ej., Khan Academy", resourceUrl: "Sitio web del recurso", resourceUrlPlaceholder: "https://example.com", resourceUrlHint: "Opcional, pero nos ayuda a identificar el recurso correcto.", reason: "¿Por qué lo recomiendas? *", reasonPlaceholder: "¿Qué lo hace valioso? ¿A quién ayuda? ¿Qué materias o habilidades cubre?", ageGroup: "Grupo de edad más adecuado", subject: "Materia principal", selectOptional: "Selecciona una opción (opcional)", yourName: "Tu nombre",
+      agePreschool: "Preescolar", agePreK: "Pre-K", ageKindergarten: "Kindergarten", ageEarlyElementary: "Primaria inicial", ageUpperElementary: "Primaria superior", ageMiddleSchool: "Secundaria media", ageHighSchool: "Secundaria superior", ageAllAges: "Todas las edades", subjectArts: "Arte y creatividad", subjectEnglish: "Inglés y lectura", subjectLanguages: "Idiomas", subjectMath: "Matemáticas", subjectMulti: "Varias materias", subjectSocialStudies: "Estudios sociales e historia", subjectStem: "STEM y tecnología",
+      yourNamePlaceholder: "Opcional", contactEmail: "Correo de contacto", contactEmailPlaceholder: "Opcional — solo si podemos contactarte", consent: "Entiendo que SEE investigará esta sugerencia y que enviarla no garantiza su publicación. *", submit: "Enviar sugerencia", cancel: "Cancelar", openingSoon: "Estamos conectando los envíos en línea. Puedes revisar el formulario ahora; el botón se habilitará cuando la hoja privada de revisión esté lista.", required: "Completa este campo obligatorio.", invalidUrl: "Escribe una dirección completa que empiece por http:// o https://.", invalidEmail: "Escribe un correo electrónico válido.", sending: "Enviando…", success: "Gracias. Tu sugerencia se envió al equipo editorial de SEE.", failed: "No pudimos enviar la sugerencia. Inténtalo más tarde."
+    },
+    ar: {
+      navResources: "استكشاف الموارد", navAbout: "عن SEE", eyebrow: "توصيات المجتمع", title: "اقتراح مورد تعليمي", intro: "هل تعرف موردًا عالي الجودة غير موجود في مكتبتنا؟ أخبرنا كيف يمكن أن يساعد الأسر. تُبحث كل توصية وتُراجع قبل إدراجها.",
+      processEyebrow: "ماذا يحدث بعد ذلك", stepOneTitle: "أنت تقترح", stepOneBody: "شارك المورد واشرح ما يجعله مفيدًا.", stepTwoTitle: "تبحث SEE", stepTwoBody: "يتحقق فريقنا من المصدر والجمهور والسعر والمعلومات الداعمة.", stepThreeTitle: "يقرر المحررون", stepThreeBody: "تدخل الموارد المعتمدة عملية المراجعة التحريرية نفسها المتبعة لبقية المكتبة.", privacy: "الاسم والبريد الإلكتروني اختياريان ولن يظهرا في المكتبة العامة.",
+      formEyebrow: "اقتراح مورد", formTitle: "أخبرنا بما ينبغي مراجعته", requiredNote: "* مطلوب", resourceName: "اسم المورد *", resourceNamePlaceholder: "مثال: Khan Academy", resourceUrl: "موقع المورد", resourceUrlPlaceholder: "https://example.com", resourceUrlHint: "اختياري، لكنه يساعدنا على تحديد المورد الصحيح.", reason: "لماذا توصي به؟ *", reasonPlaceholder: "ما الذي يجعله مفيدًا؟ لمن يناسب؟ ما المواد أو المهارات التي يغطيها؟", ageGroup: "الفئة العمرية الأنسب", subject: "المادة الرئيسية", selectOptional: "اختر خيارًا (اختياري)", yourName: "اسمك",
+      agePreschool: "ما قبل المدرسة", agePreK: "ما قبل الروضة", ageKindergarten: "الروضة", ageEarlyElementary: "الابتدائية المبكرة", ageUpperElementary: "الابتدائية العليا", ageMiddleSchool: "المتوسطة", ageHighSchool: "الثانوية", ageAllAges: "جميع الأعمار", subjectArts: "الفنون والإبداع", subjectEnglish: "الإنجليزية والقراءة", subjectLanguages: "اللغات", subjectMath: "الرياضيات", subjectMulti: "مواد متعددة", subjectSocialStudies: "الدراسات الاجتماعية والتاريخ", subjectStem: "العلوم والتقنية والهندسة والرياضيات",
+      yourNamePlaceholder: "اختياري", contactEmail: "بريد التواصل", contactEmailPlaceholder: "اختياري — فقط إذا أمكننا المتابعة", consent: "أفهم أن SEE ستبحث هذا الاقتراح وأن إرساله لا يضمن نشره. *", submit: "إرسال الاقتراح", cancel: "إلغاء", openingSoon: "يجري ربط الإرسال عبر الإنترنت. يمكنك مراجعة النموذج الآن، وسيتاح زر الإرسال عندما تصبح ورقة المراجعة الخاصة جاهزة.", required: "يرجى إكمال هذا الحقل المطلوب.", invalidUrl: "أدخل عنوانًا كاملًا يبدأ بـ http:// أو https://.", invalidEmail: "أدخل بريدًا إلكترونيًا صالحًا.", sending: "جارٍ الإرسال…", success: "شكرًا لك. أُرسل اقتراحك إلى فريق تحرير SEE.", failed: "تعذر إرسال الاقتراح. حاول مرة أخرى لاحقًا."
     }
   };
 
@@ -58,11 +73,13 @@
   const endpointReady = () => /^https:\/\//.test(String(config.endpoint || ""));
 
   function applyLanguage() {
-    document.documentElement.lang = language === "zh" ? "zh-Hans" : "en";
-    document.title = language === "zh" ? "推荐学习资源 · SEE" : "Suggest a learning resource · SEE";
+    document.documentElement.lang = language === "zh" ? "zh-Hans" : language;
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+    document.title = ({ zh: "推荐学习资源 · SEE", es: "Sugerir un recurso educativo · SEE", ar: "اقتراح مورد تعليمي · SEE" }[language] || "Suggest a learning resource · SEE");
     document.querySelectorAll("[data-copy]").forEach(element => { element.textContent = t(element.dataset.copy); });
     document.querySelectorAll("[data-placeholder]").forEach(element => { element.placeholder = t(element.dataset.placeholder); });
-    languageButton.textContent = language === "zh" ? "English" : "中文";
+    languageButton.value = language;
+    languageButton.setAttribute("aria-label", ({ zh: "选择语言", es: "Elegir idioma", ar: "اختيار اللغة" }[language] || "Choose language"));
     connectionNotice.textContent = endpointReady() ? "" : t("openingSoon");
     connectionNotice.hidden = endpointReady();
     submitButton.disabled = !endpointReady();
@@ -96,7 +113,7 @@
     const data = new FormData(form);
     return {
       schemaVersion: 1,
-      locale: language === "zh" ? "zh-Hans" : "en",
+      locale: language === "zh" ? "zh-Hans" : language,
       resourceName: String(data.get("resourceName") || "").trim(),
       resourceUrl: String(data.get("resourceUrl") || "").trim(),
       recommendation: String(data.get("recommendation") || "").trim(),
@@ -140,8 +157,8 @@
   });
 
   reason.addEventListener("input", updateCount);
-  languageButton.addEventListener("click", () => {
-    language = language === "en" ? "zh" : "en";
+  languageButton.addEventListener("change", event => {
+    language = supportedLanguages.includes(event.target.value) ? event.target.value : "en";
     localStorage.setItem("seeLanguage", language);
     applyLanguage();
   });

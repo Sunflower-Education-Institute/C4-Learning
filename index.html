@@ -7,7 +7,7 @@
     <title>SEE Learning Resources</title>
     <link rel="icon" type="image/png" href="assets/brand/see-logo-symbol.png?v=20260914-1" />
     <link rel="apple-touch-icon" href="assets/brand/see-logo-symbol.png?v=20260914-1" />
-    <link rel="stylesheet" href="styles.css?v=20260916-4" />
+    <link rel="stylesheet" href="styles.css?v=20261001-2" />
   </head>
   <body>
     <a class="skip-link" href="#resources">Skip to resources</a>
@@ -35,6 +35,8 @@
         <div class="language-menu" role="menu">
           <button type="button" data-language="en" role="menuitem">English</button>
           <button type="button" data-language="zh" role="menuitem">中文</button>
+          <button type="button" data-language="es" role="menuitem">Español</button>
+          <button type="button" data-language="ar" role="menuitem">العربية</button>
         </div>
         <button class="sign-in" type="button" data-i18n="signIn">Sign in</button>
       </nav>
@@ -134,7 +136,7 @@
 
     <dialog id="signin-dialog" class="signin-dialog">
       <button class="dialog-close" type="button" aria-label="Close">×</button>
-      <p class="eyebrow">Saved resources</p>
+      <p class="eyebrow" data-i18n="savedResources">Saved resources</p>
       <h2 data-i18n="signinTitle">Sign in to save and compare</h2>
       <p data-i18n="signinBody">Use the prefilled guest account. No personal information is collected.</p>
       <form id="demo-signin-form" class="signin-form">
@@ -145,9 +147,10 @@
       <small class="demo-privacy" data-i18n="demoPrivacy">Saved resources are stored on this device.</small>
     </dialog>
 
-    <script src="data/resources.js?v=20260916-1"></script>
+    <script src="data/resources.js?v=20261001-1"></script>
     <script src="data/reviews.js?v=20260916-1"></script>
-    <script src="account.js?v=20260915-1"></script>
-    <script src="app.js?v=20260916-5"></script>
+    <script src="data/localizations.js?v=20261001-1"></script>
+    <script src="account.js?v=20261001-2"></script>
+    <script src="app.js?v=20261001-2"></script>
   </body>
 </html>

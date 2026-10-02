@@ -6,7 +6,7 @@
     <meta name="description" content="Saved SEE learning resources and comparison." />
     <title>My saved resources · SEE</title>
     <link rel="icon" type="image/png" href="assets/brand/see-logo-symbol.png" />
-    <link rel="stylesheet" href="styles.css?v=20260915-1" />
+    <link rel="stylesheet" href="styles.css?v=20261001-2" />
   </head>
   <body>
     <a class="skip-link" href="#saved-main">Skip to saved resources</a>
@@ -16,8 +16,11 @@
         <span class="brand-words"><strong>The Sunflower Education Institute</strong><small>Empower parents and children</small></span>
       </a>
       <nav class="main-nav page-nav" aria-label="Main navigation">
-        <a href="index.html#resources">Explore resources</a>
-        <a href="suggest.html">Suggest a resource</a>
+        <a href="index.html#resources" data-saved-copy="navResources">Explore resources</a>
+        <a href="suggest.html" data-saved-copy="navSuggest">Suggest a resource</a>
+        <select class="text-language-select" data-saved-language aria-label="Choose language">
+          <option value="en">English</option><option value="zh">中文</option><option value="es">Español</option><option value="ar">العربية</option>
+        </select>
         <button class="sign-in" type="button">My saved</button>
       </nav>
     </header>
@@ -41,8 +44,9 @@
       <small class="demo-privacy">Saved resources are stored on this device.</small>
     </dialog>
 
-    <script src="data/resources.js"></script>
-    <script src="account.js?v=20260915-1"></script>
-    <script src="saved.js?v=20260916-1"></script>
+    <script src="data/resources.js?v=20261001-1"></script>
+    <script src="data/localizations.js?v=20261001-1"></script>
+    <script src="account.js?v=20261001-2"></script>
+    <script src="saved.js?v=20261001-2"></script>
   </body>
 </html>
