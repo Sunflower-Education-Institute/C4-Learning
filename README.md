@@ -25,7 +25,7 @@ The prefilled guest account stores its signed-in and saved-resource state only i
 
 Resource cards link to `resource.html`, while official source links appear only on that internal detail page. Signed-in guests can open `saved.html` to select two to four saved resources for comparison.
 
-The detail-page AI summary is pre-generated rather than a live model call. `data/review-summaries.js` contains separately authored English and Simplified Chinese summaries for selected resources and records the number of published reviews used. Reviewer display names and badges live in `data/reviewers.js`.
+The detail-page AI summary is pre-generated rather than a live model call. `data/content-translations.js` contains the complete English and Simplified Chinese long-form content, translated reviews, review originals, and AI-assisted summaries for all resources. Machine-assisted drafts are labeled for human editorial review. Reviewer display names and badges live in `data/reviewers.js`; `data/review-summaries.js` remains the source archive for the selected manually authored summaries incorporated into the complete content file.
 
 ## Resource suggestions
 

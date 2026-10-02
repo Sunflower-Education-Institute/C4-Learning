@@ -7,9 +7,9 @@ The public site currently supports four interface locales:
 - `es` — AI-assisted Spanish draft, pending human review
 - `ar` — AI-assisted Arabic draft with right-to-left layout, pending human review
 
-English pages must never fall back to Chinese editorial text. When an English long-form overview or review has not yet been approved, the English page shows an English pending message instead. Chinese pages may show approved Chinese editorial content and approved Chinese translations of English reviews.
+English and Chinese resource pages now include the complete long-form overview, every published review, and an AI-assisted summary for all 39 resources. Chinese long-form overviews retain the original Chinese editorial copy. English long-form overviews and Chinese-origin reviews are machine-assisted translations pending human review. Each translated review includes a control for switching between the site-language translation and the original text.
 
-Spanish and Arabic currently translate the public English interface, all 39 resource-card summaries, and the three English-language family reviews. English long-form overviews and most English review summaries are still awaiting editorial preparation, so the corresponding Spanish and Arabic sections display translated pending-review messages rather than importing the legacy Chinese text.
+Spanish and Arabic currently translate the public interface, all 39 resource-card summaries, and the three English-language family reviews. Their long-form overviews and AI-assisted summaries are intentionally deferred, so those sections display translated pending-review messages rather than importing Chinese or English drafts.
 
 ## Reviewing Spanish and Arabic
 
